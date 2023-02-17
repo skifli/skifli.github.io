@@ -22,10 +22,24 @@
     </div>
 
     <div id="body">
-        <h1>C++'s confusing integer promotion rules</h1>
+        <h1 id="title">C++'s confusing integer promotion rules</h1>
         <div id="tags">
             <i>Tags: <b>C++</b>.</i>
         </div>
+
+        <ul>
+            <li><a href="#title" class="link">C++'s confusing integer promotion rules</a></li>
+            <li><a href="#examples" class="link">Some Interesting Examples</a></li>
+            <ul>
+                <li><a href="#example-1" class="link">Example 1</a></li>
+                <li><a href="#example-2" class="link">Example 2</a></li>
+                <li><a href="#example-3" class="link">Example 3</a></li>
+            </ul>
+            <li><a href="#the-rules" class="link">The Rules</a></li>
+            <li><a href="#summary" class="link">Summary</a></li>
+        </ul>
+
+        <br>
 
         <p>
             There are many parts of C++ that are not well understood, and lead to confusion. Two such aspects are the
@@ -55,12 +69,12 @@
 }
 </code></pre>
 
-        <h2>Some Interesting Examples</h2>
+        <h2 id="examples">Some Interesting Examples</h2>
 
         <p>It's quite likely that you won't be able to work out the behaviour of the code snippets. The examples are
             meant to be puzzling, and show some of the worst behaviours of C++.</p>
 
-        <h3>Example 1</h3>
+        <h3 id="example-1">Example 1</h3>
 
         <p>This snippet includes a <i>relational expression</i> between a <i>long</i> value and an <i>unsigned
                 integer</i> value.</p>
@@ -78,7 +92,7 @@
             </ul>
         </details>
 
-        <h3>Example 2</h3>
+        <h3 id="example-2">Example 2</h3>
 
         <p>This snippet includes subtraction between different <i>unsigned</i> variables.</p>
 
@@ -114,7 +128,7 @@
             event though both operands are <i>unsigned</i>!
         </p>
 
-        <h3>Example 3</h3>
+        <h3 id="example-3">Example 3</h3>
 
         <pre><code class="language-cpp">void main() {
     unsigned short a=0xFFFF;
@@ -134,7 +148,7 @@
             </p>
         </details>
 
-        <h2>The Rules</h2>
+        <h2 id="the-rules">The Rules</h2>
 
         <p>The rules for Usual Arithemtic Conversions are covered in the <a
                 href="https://eel.is/c++draft/expr.arith.conv" class="link" target="_blank">draft C++ standard</a>. The
@@ -298,9 +312,11 @@ void main() {
                     // 1UL, which is false.
                     //
                     // https://stackoverflow.com/a/22801135/1708801 explains why
-                    // -1UL becomes 4294967295UL
+                    // -1UL becomes 4294967295UL.
 }
 </code></pre>
+
+        <h2 id="summary">Summary</h2>
 
         <p>In this blog we have learnt about <i>usual arithmetic conversions</i>, and how they bring operands of many
             binary operations to a common type before evaluation. We saw several examples, and looked at their
