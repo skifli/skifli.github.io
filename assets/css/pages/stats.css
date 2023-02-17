@@ -1,0 +1,26 @@
+#stats-info {
+    margin-bottom: 10px;
+}
+
+ul#langs-used {
+    list-style: none;
+}
+
+ul#langs-used li {
+    margin-left: 0px;
+}
+
+.wrapper {
+    width: 100%;
+    height: 1rem;
+}
+
+ul#langs-used p {
+    float: left;
+}
+
+ul#langs-used p.right {
+    color: #999;
+    float: right;
+    font-weight: 700;
+}

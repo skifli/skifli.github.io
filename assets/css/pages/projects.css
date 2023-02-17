@@ -1,0 +1,59 @@
+ul {
+    list-style: none;
+}
+
+ul li {
+    border-bottom: 1px solid #D5D5D5;
+    padding: 7.5px 0px;
+    font-size: 14px;
+    margin-left: 0px;
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+ul li a {
+    border-radius: 5px;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+#api-declaration {
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 17.5px;
+    margin: 0px 0px 2.5px 0px;
+}
+
+#info {
+    display: none;
+    margin-left: 15px;
+    max-width: 600px;
+}
+
+#info ul li {
+    list-style: disc;
+}
+
+#info ul li {
+    border: none;
+    padding: 2.5px 0px;
+    margin-left: 1rem;
+}
+
+@media only screen and (max-width: 1325px) {
+    #info {
+        margin-left: 125px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #info {
+        margin: 0px 25px 0px 25px;
+    }
+}
