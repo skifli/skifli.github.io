@@ -40,3 +40,49 @@ ul li {
 i {
     font-size: 12.5px
 }
+
+code {
+    margin: 5px 0;
+    position: relative;
+    width: 1200px
+}
+
+@media only screen and (max-width:1200px) {
+    code {
+        position: static;
+        width: auto
+    }
+}
+
+::-webkit-scrollbar {
+    background-clip: content-box;
+    background-color: #d6dee1;
+    border: 6px solid transparent;
+    border-radius: 20px
+}
+
+::-webkit-scrollbar:hover {
+    background-color: #a8bbbf
+}
+
+details {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 2.5px 5px;
+    transition: border-color .25s ease-in
+}
+
+details[open] {
+    border-color: #000
+}
+
+details p {
+    text-align: left
+}
+
+.citation {
+    border-left: 1px solid #999;
+    padding-left: 10px;
+    margin: 7.5px 0px
+}
