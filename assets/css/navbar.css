@@ -1,81 +1,80 @@
 #nav {
+    height: 100%;
     margin-right: 25px;
     margin-top: 50px;
     position: fixed;
     top: 0;
-    width: 125px;
-    height: 100%;
+    width: 125px
 }
 
 #nav .nav__list {
     margin-bottom: 10px;
-    padding-left: 15px;
+    padding-left: 15px
 }
 
 #nav .nav__list a {
-    display: block;
     color: #999;
-    font-family: "Roboto Mono", sans-serif;
-    padding: 2.5px 0px 0px 2.5px;
+    display: block;
+    font-family: Roboto Mono, sans-serif;
+    padding: 2.5px 0 0 2.5px;
     text-decoration: none;
-    transition: color .25s ease-in, margin-left .25s ease-in;
+    transition: color .25s ease-in, margin-left .25s ease-in
 }
 
 #nav .nav__list a:hover {
     color: #000;
-    margin-left: 5px;
+    margin-left: 5px
 }
 
 #nav .nav__list a#current {
-    color: #337df8;
+    color: #337df8
 }
 
 #nav .nav__list a#current:hover {
-    color: #2565cc;
+    color: #2565cc
 }
 
 #body {
+    float: left;
     padding-left: 125px;
     padding-right: 20px;
-    width: 600px;
-
-    float: left;
+    width: 600px
 }
 
 h1 {
     font-size: 30px;
-    margin-bottom: 5px;
+    margin-bottom: 5px
 }
 
 p {
     font-size: 14px;
-    text-align: justify;
+    text-align: justify
 }
 
 h2 {
     font-size: 20px;
-    margin: 20px 0px 2.5px 0px;
+    margin: 20px 0 2.5px
 }
 
-@media only screen and (max-width: 725px) {
+@media only screen and (max-width:725px) {
     #body {
-        width: 100%;
+        width: 100%
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width:600px) {
     #nav {
-        position: initial;
-        width: 100%;
         padding-left: 25px;
+        position: static;
+        width: 100%
     }
 
     #nav .nav__list {
-        padding-left: 0px;
+        padding-left: 0
     }
 
     #body {
-        padding: 10px 25px 0px 25px;
-        float: initial;
+        float: none;
+        padding: 10px 25px 0
     }
 }

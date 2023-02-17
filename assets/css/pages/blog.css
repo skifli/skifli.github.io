@@ -1,42 +1,42 @@
 i {
-    margin-bottom: 10px;
+    margin-bottom: 10px
 }
 
 .wrapper {
-    width: 100%;
     height: 1rem;
+    width: 100%
 }
 
 ul {
-    list-style: none;
+    list-style: none
 }
 
 ul li {
-    margin-left: 0px;
+    margin-left: 0
 }
 
 ul p {
-    float: left;
+    float: left
 }
 
 ul p.right {
     color: #999;
     float: right;
-    font-weight: 700;
+    font-weight: 700
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width:400px) {
     .wrapper {
         display: flex;
         flex-direction: column;
-        height: auto;
+        height: auto
     }
 
     ul li {
-        margin-bottom: 15px;
+        margin-bottom: 15px
     }
 
     ul p.right {
-        float: left;
+        float: left
     }
 }

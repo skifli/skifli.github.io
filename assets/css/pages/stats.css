@@ -1,26 +1,26 @@
 #stats-info {
-    margin-bottom: 10px;
+    margin-bottom: 10px
 }
 
 ul#langs-used {
-    list-style: none;
+    list-style: none
 }
 
 ul#langs-used li {
-    margin-left: 0px;
+    margin-left: 0
 }
 
 .wrapper {
-    width: 100%;
     height: 1rem;
+    width: 100%
 }
 
 ul#langs-used p {
-    float: left;
+    float: left
 }
 
 ul#langs-used p.right {
     color: #999;
     float: right;
-    font-weight: 700;
+    font-weight: 700
 }

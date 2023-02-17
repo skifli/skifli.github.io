@@ -1,4 +1,4 @@
-window.addEventListener("load", async function() {
+window.addEventListener("load", async function () {
     var req = await fetch("https://raw.githubusercontent.com/skifli/skifli/master/generated/overview.svg#gh-dark-mode-only");
     var text = await req.text();
 
@@ -6,7 +6,7 @@ window.addEventListener("load", async function() {
     var html = parser.parseFromString(text, "text/html");
 
     var rows = html.getElementsByTagName("tr");
-    
+
     this.document.getElementById("stars").innerHTML = `Received ${rows[1].getElementsByTagName("td")[1].innerText} star${rows[1].getElementsByTagName("td")[1].innerText == 1 ? '' : 's'}.`;
     this.document.getElementById("forks").innerHTML = `Received ${rows[2].getElementsByTagName("td")[1].innerText} fork${rows[2].getElementsByTagName("td")[1].innerText == 1 ? '' : 's'}.`;
     this.document.getElementById("contributions").innerHTML = `${rows[3].getElementsByTagName("td")[1].innerText} all-time contribution${rows[3].getElementsByTagName("td")[1].innerText == 1 ? '' : 's'}.`;

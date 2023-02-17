@@ -1,4 +1,4 @@
-window.addEventListener("load", async function() {
+window.addEventListener("load", async function () {
     var ul = document.getElementById("projects");
 
     try {
@@ -20,7 +20,7 @@ window.addEventListener("load", async function() {
     } catch (e) {
         let err = `Failed to get my respositories from the GitHub api - ${e}.`;
         console.error(err);
-        
+
         let li = this.document.createElement("li");
         li.innerHTML = err;
 
