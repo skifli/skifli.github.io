@@ -1,15 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap");
 
 * {
-    background-color: #f9f9f9;
     box-sizing: border-box;
-    font-family: Roboto Mono, monospace;
     margin: 0;
     padding: 0;
     scroll-behavior: smooth
 }
 
 body {
+    background-color: #f9f9f9;
+    font-family: Roboto Mono, monospace;
     margin-top: 50px;
     width: 100%
 }
@@ -50,6 +51,8 @@ i {
 }
 
 code {
+    font-family: Fira Code, monospace;
+    font-size: 15px;
     margin: 5px 0;
     position: relative;
     width: 1200px
