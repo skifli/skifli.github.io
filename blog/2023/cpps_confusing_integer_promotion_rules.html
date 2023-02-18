@@ -70,8 +70,7 @@
     auto b = 1U;  // Integer literal 1L has type unsigned int.
     auto c = 1L;  // Integer literal 1L has type long int.
     auto d = 1UL; // Integer literal 1UL has type unsigned long int.
-}
-</code></pre>
+}</code></pre>
 
         <h2 id="examples">Some Interesting Examples</h2>
 
@@ -85,8 +84,7 @@
 
         <pre><code class="language-cpp">void main() {
     std::cout << (-1L < 1U); // What will this output?
-}
-        </code></pre>
+}</code></pre>
 
         <details>
             <summary>Output</summary>
@@ -104,8 +102,7 @@
     uint16_t a = 1;
     uint16_t b = 2;
     std::cout << a - b; // What will this output?            
-}
-        </code></pre>
+}</code></pre>
 
         <details>
             <summary>Output</summary>
@@ -116,8 +113,7 @@
     uint32_t a = 1;
     uint32_t b = 2;
     std::cout << a - b; // What will this output?
-}
-                </code></pre>
+}</code></pre>
 
         <details>
             <summary>Output</summary>
@@ -239,8 +235,7 @@ void main() {
     
     auto c = a + b; // After integer promotions both operands promoted to int.
                     // Both have the same type so no further conversion needed.
-}
-        </code></pre>
+}</code></pre>
 
         <ul>
             <li>Otherwise, if both operands have signed integer types or both have unsigned integer types, the operand
@@ -263,8 +258,7 @@ void main() {
                     // 'e' remains unsigned long. Both are unsigned, but
                     // unsigned int has a rank less than unsigned long so
                     // 'd' will be converted to unsigned long.
-}
-</code></pre>
+}</code></pre>
 
         <ul>
             <li>
@@ -282,8 +276,7 @@ void main() {
                         // to int. So, the right operand will be converted to
                         // unsigned int. That means we have 1U > -1U, which is
                         // equivalent to 1U > 4294967295U, which is false.
-}
-</code></pre>
+}</code></pre>
 
         <ul>
             <li>
@@ -317,8 +310,7 @@ void main() {
                     //
                     // https://stackoverflow.com/a/22801135/1708801 explains why
                     // -1UL becomes 4294967295UL.
-}
-</code></pre>
+}</code></pre>
 
         <h2 id="summary">Summary</h2>
 
