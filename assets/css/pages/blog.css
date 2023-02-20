@@ -25,11 +25,12 @@ ul p.right {
     font-weight: 700
 }
 
-@media only screen and (max-width:400px) {
+@media only screen and (max-width:600px) {
     .wrapper {
         display: flex;
         flex-direction: column;
-        height: auto
+        height: auto;
+        margin-bottom: 5px
     }
 
     ul li {
