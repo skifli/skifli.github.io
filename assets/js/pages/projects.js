@@ -35,6 +35,14 @@ async function showInfo(repo) {
         var repo = JSON.parse(await req.text());
         document.getElementById("info-api-declaration").innerHTML = `<p id="info-api-declaration"><i>Retrieved repository data in ${performance.now() - start}ms.</i></p>`;
 
+        if (repo["homepage"] == "") {
+            document.getElementById("homepage").style.display = "none";
+        } else {
+           let homepage = document.getElementById("homepage");
+           homepage.style.display = "";
+           homepage.innerHTML = `Homepage: <a href="${repo["homepage"]}" class="link" target="_blank">${repo["homepage"]}</a>`;
+        }
+
         document.getElementById("title").innerHTML = `<a href="${repo['html_url']}" class="link" target="_blank">${repo['full_name']}</a> (${repo['stargazers_count']} Star${repo['stargazers_count'] == 1 ? '' : 's'}, ${repo['forks_count']} Fork${repo['forks_count'] == 1 ? '' : 's'}, ${repo['watchers_count']} Watcher${repo['watchers_count'] == 1 ? '' : 's'})`;
         document.getElementById("description").innerHTML = `${repo['description']}`;
         document.getElementById("language").innerHTML = `Written mainly in ${repo['language']}.`;
