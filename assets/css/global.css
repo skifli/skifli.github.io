@@ -65,17 +65,6 @@ code {
     }
 }
 
-::-webkit-scrollbar {
-    background-clip: content-box;
-    background-color: #d6dee1;
-    border: 6px solid transparent;
-    border-radius: 20px
-}
-
-::-webkit-scrollbar:hover {
-    background-color: #a8bbbf
-}
-
 details {
     border: 1px solid transparent;
     border-radius: 5px;
