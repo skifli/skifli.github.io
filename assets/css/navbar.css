@@ -4,7 +4,7 @@
     margin-top: 50px;
     position: fixed;
     top: 0;
-    width: 125px
+    width: 175px
 }
 
 #nav .nav__list {
@@ -37,7 +37,7 @@
 #body {
     float: left;
     margin-bottom: 25px;
-    padding-left: 125px;
+    padding-left: 175px;
     padding-right: 20px;
     width: 600px
 }
