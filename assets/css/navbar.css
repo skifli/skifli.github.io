@@ -37,7 +37,7 @@
 #body {
     float: left;
     margin-bottom: 25px;
-    padding-left: 175px;
+    margin-left: 175px;
     margin-right: 20px;
     width: 600px
 }
@@ -68,7 +68,7 @@ h3 {
     }
 }
 
-@media only screen and (max-width:600px) {
+@media only screen and (max-width:775px) {
     #nav {
         padding-left: 25px;
         position: static;
@@ -81,6 +81,7 @@ h3 {
 
     #body {
         float: none;
+        margin-left: 0px;
         padding: 10px 25px 0
     }
 }

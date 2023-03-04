@@ -58,7 +58,7 @@ code {
     width: 1200px
 }
 
-@media only screen and (max-width:1200px) {
+@media only screen and (max-width:1400px) {
     code {
         position: static;
         width: auto
