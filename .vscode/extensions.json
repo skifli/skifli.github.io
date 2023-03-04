@@ -1,3 +1,11 @@
 {
-    "recommendations": ["mohd-akram.vscode-html-format"],
+    "recommendations": [
+        "albert.tabout",
+        "christian-kohler.path-intellisense",
+        "gruntfuggly.todo-tree",
+        "moalamri.inline-fold",
+        "pkief.material-icon-theme",
+        "ritwickdey.liveserver",
+        "zhuangtongfa.material-theme"
+    ]
 }
