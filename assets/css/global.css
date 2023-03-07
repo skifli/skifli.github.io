@@ -196,3 +196,11 @@ p {
         width: 100%
     }
 }
+
+/* start misc rules */
+
+#api-declaration {
+    font-style: italic;
+}
+
+/* end misc rules */
