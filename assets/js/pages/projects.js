@@ -29,4 +29,6 @@ window.addEventListener("load", async function () {
 
         contents.appendChild(card);
     }
+
+    console.log("why hello there... most people don't see this :0, so consider yourself priveliged ;_)");
 })
