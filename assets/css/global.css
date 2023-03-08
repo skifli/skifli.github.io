@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap");
 
 /* start global variables */
 
@@ -72,36 +72,43 @@ a:hover {
 
 h1 {
     font-size: var(--h1-font-size);
+    font-weight: 700;
     margin-bottom: var(--h1-margin-bottom)
 }
 
 h2 {
     font-size: var(--h2-font-size);
+    font-weight: 700;
     margin-bottom: var(--h2-margin-bottom)
 }
 
 h3 {
     font-size: var(--h3-font-size);
+    font-weight: 600;
     margin-bottom: var(--h3-margin-bottom)
 }
 
 h4 {
     font-size: var(--h4-font-size);
+    font-weight: 600;
     margin-bottom: var(--h4-margin-bottom)
 }
 
 h5 {
     font-size: var(--h5-font-size);
+    font-weight: 500;
     margin-bottom: var(--h5-margin-bottom)
 }
 
 h6 {
     font-size: var(--h6-font-size);
+    font-weight: 500;
     margin-bottom: var(--h6-margin-bottom)
 }
 
 p {
     font-size: var(--p-font-size);
+    font-weight: 400;
     margin-bottom: var(--p-margin-bottom);
     text-align: justify
 }
