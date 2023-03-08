@@ -23,6 +23,9 @@ window.addEventListener("load", async function () {
         card.className = "card";
         card.style["background"] = randomGradient();
         card.innerHTML = `<h5>${repo["full_name"]}</h5> <p>${repo["description"]}</p>`;
+        card.onclick = function () {
+            window.open(repo["html_url"], "_blank").focus();
+        };
 
         contents.appendChild(card);
     }
