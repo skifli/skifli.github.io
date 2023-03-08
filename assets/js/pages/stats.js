@@ -2,7 +2,7 @@ window.addEventListener("load", async function () {
     const start = this.performance.now();
 
     let statsJSON = `{"repos": ${await (await this.fetch("https://api.github.com/users/skifli/repos?type=all&per_page=100")).text()}}`; // get the stats data (API returns a list that needs to be put as a value in a map)
-    this.document.getElementById("api-declaration").innerHTML = `Retreived stats from the <a href="https://docs.github.com/en/rest" class="link" target="_blank">GitHub API</a> in ${this.performance.now() - start} ms.`;
+    this.document.getElementById("api-declaration").innerHTML = `Retreived stats from the <a href="https://docs.github.com/en/rest" class="link" target="_blank">GitHub API</a> in ${Math.round(this.performance.now() - start)} ms.`;
 
     statsJSON = JSON.parse(statsJSON); // parse stats into a json object
     let statsData = { "repo_owns": 0, "open_issues_count": 0, "forks_count": 0, "stars_received": 0, "forks_received": 0, "watchers_received": 0 }; // instantiate the stats data
