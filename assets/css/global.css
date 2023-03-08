@@ -58,12 +58,14 @@ body {
 }
 
 a {
+    border-bottom: 1px solid transparent;
     color: var(--link-color);
     text-decoration: none;
-    transition: color 0.25s ease-in
+    transition: color 0.25s ease-in, border-color 0.25s ease-in
 }
 
 a:hover {
+    border-color: black;
     color: var(--link-color_hover)
 }
 
@@ -151,6 +153,7 @@ p {
 }
 
 #navbar ul li a {
+    border: none;
     color: var(--font-color-muted);
     font-size: var(--h6-font-size);
     padding-left: var(--navbar_item-padding-left);
