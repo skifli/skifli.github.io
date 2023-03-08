@@ -1,5 +1,5 @@
 function randomRGB() {
-    return `rgb(${Math.floor(Math.random() * 500)}, ${Math.floor(Math.random() * 500)}, ${Math.floor(Math.random() * 500)})`
+    return `rgb(${Math.floor(Math.random() * 600)}, ${Math.floor(Math.random() * 400)}, ${Math.floor(Math.random() * 600)})`
 }
 
 function randomGradient() {
