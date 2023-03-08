@@ -4,4 +4,6 @@
     "editor.fontSize": 13,
     "editor.formatOnSave": true,
     "editor.suggest.localityBonus": true,
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "workbench.iconTheme": "material-icon-theme"
 }
