@@ -15,10 +15,9 @@ window.addEventListener("load", async function () {
         statsData["forks_count"] += (repo["fork"] ? 1 : 0);
         statsData["stars_received"] += repo["stargazers_count"];
         statsData["forks_received"] += repo["forks_count"];
-        statsData["watchers_received"] += repo["watchers_count"];
+        statsData["watchers_received"] += JSON.parse(`{"watchers": ${await (await this.fetch(repo["subscribers_url"])).text()}}`)["watchers"].length;
     }
 
-    this.document.getElementById("repo-contribs").innerHTML = `I have contributed to ${statsJSON["repos"].length} repositor${statsJSON["repos"].length == 1 ? "y" : "ies"}.`;
     this.document.getElementById("repo-owns").innerHTML = `I own ${statsData["repo_owns"]} repositor${statsData["repo_owns"] == 1 ? "y" : "ies"}.`;
     this.document.getElementById("open-issues-pr-count").innerHTML = `I have ${statsData["open_issues_count"]} unresolved issue${statsData["open_issues_count"] == 1 ? "" : "s"} / pull request${statsData["open_issues_count"] == 1 ? "" : "s"} in my repositor${statsJSON["repos"].length == 1 ? "y" : "ies"}.`;
     this.document.getElementById("forks-count").innerHTML = `I have forked ${statsData["forks_count"]} repositor${statsData["forks_count"] == 1 ? "y" : "ies"}.`;
