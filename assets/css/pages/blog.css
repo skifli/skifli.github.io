@@ -1,0 +1,39 @@
+.wrapper {
+    height: 1rem;
+    width: 100%
+}
+
+#contents ul {
+    list-style: none
+}
+
+#contents ul li {
+    margin-left: 0
+}
+
+#contents ul p {
+    float: left
+}
+
+#contents ul p.right {
+    color: var(--font-color-muted);
+    float: right;
+    font-weight: 700
+}
+
+@media only screen and (max-width:635px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        margin-bottom: 5px
+    }
+
+    #contents ul li {
+        margin-bottom: 15px
+    }
+
+    #contents ul p.right {
+        float: left
+    }
+}

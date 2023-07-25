@@ -1,0 +1,13 @@
+pre code,
+details,
+ul#toc {
+    margin-bottom: 10px
+}
+
+ul {
+    font-size: var(--h6-font-size);
+}
+
+ul ul {
+    margin-left: 20px
+}
