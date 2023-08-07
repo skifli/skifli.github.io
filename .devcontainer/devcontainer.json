@@ -21,13 +21,4 @@
         }
     },
     "postCreateCommand": "npm install",
-    "forwardPorts": [
-        3000
-    ],
-    "portsAttributes": {
-        "3000": {
-            "label": "Node.js Server",
-            "onAutoForward": "openBrowser"
-        }
-    }
 }
