@@ -1,0 +1,28 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/universal:2",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                // Update `../.vscode/extensions.json` as well.
+                "albert.tabout",
+                "alexanderte.dainty-one-dark-pro-vscode",
+                "christian-kohler.path-intellisense",
+                "donjayamanne.githistory",
+                "gruntfuggly.todo-tree",
+                "mhutchie.git-graph",
+                "pkief.material-icon-theme"
+            ]
+        }
+    },
+    "updateContentCommand": "npm install",
+    "postAttachCommand": "npm run dev",
+    "forwardPorts": [
+        3000
+    ],
+    "portsAttributes": {
+        "3000": {
+            "label": "Node.js Server",
+            "onAutoForward": "openBrowser"
+        }
+    }
+}

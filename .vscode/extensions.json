@@ -1,4 +1,5 @@
 {
+    // Update `../.devcontainer/devcontainer.json` as well.
     "recommendations": [
         "albert.tabout",
         "alexanderte.dainty-one-dark-pro-vscode",
@@ -6,8 +7,6 @@
         "donjayamanne.githistory",
         "gruntfuggly.todo-tree",
         "mhutchie.git-graph",
-        "pkief.material-icon-theme",
-        "redhat.vscode-yaml",
-        "ritwickdey.liveserver",
-    ],
+        "pkief.material-icon-theme"
+    ]
 }
