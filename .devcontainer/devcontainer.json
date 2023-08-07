@@ -20,7 +20,8 @@
             ]
         }
     },
-    "postStartCommand": "npm install && npm run dev",
+    "postCreateCommand": "npm install",
+    "postStartCommand": "npm run dev",
     "forwardPorts": [
         3000
     ],
