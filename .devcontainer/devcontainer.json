@@ -1,5 +1,5 @@
 {
-    "image": "mcr.microsoft.com/devcontainers/universal:2",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node",
     "customizations": {
         "vscode": {
             "extensions": [
@@ -14,8 +14,7 @@
             ]
         }
     },
-    "updateContentCommand": "npm install",
-    "postAttachCommand": "npm run dev",
+    "postStartCommand": "npm install && npm run dev",
     "forwardPorts": [
         3000
     ],
