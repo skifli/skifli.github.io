@@ -19,6 +19,5 @@
                 "wakatime.vscode-wakatime"
             ]
         }
-    },
-    "postCreateCommand": "npm install",
+    }
 }
