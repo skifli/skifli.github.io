@@ -3,7 +3,6 @@
     "recommendations": [
         "albert.tabout",
         "alexanderte.dainty-one-dark-pro-vscode",
-        "astro-build.astro-vscode",
         "christian-kohler.path-intellisense",
         "donjayamanne.githistory",
         "github.copilot",
@@ -13,7 +12,8 @@
         "gruntfuggly.todo-tree",
         "mhutchie.git-graph",
         "pkief.material-icon-theme",
-        "wakatime.vscode-wakatime"
+        "wakatime.vscode-wakatime",
+        "yandeu.five-server"
     ],
     "unwantedRecommendations": [
         "ms-vscode-remote.remote-containers",
