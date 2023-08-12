@@ -1,0 +1,67 @@
+nav {
+    height: 100vh;
+    background-color: var(--lighter-bg-colour)
+}
+
+nav .link {
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    margin: 10px;
+    padding: 10px;
+    transition: background-color .25s ease
+}
+
+nav .link:hover {
+    background-color: var(--lightest-bg-colour);
+    cursor: pointer
+}
+
+nav .link#current {
+    background-color: var(--accent-colour)
+}
+
+nav .link i {
+    transition: transform .25s ease
+}
+
+nav .link i:hover {
+    transform: scale(1.1)
+}
+
+nav .link::after {
+    background-color: var(--lighter-bg-colour);
+    border-radius: 10px;
+    opacity: 0;
+    padding: 5px 10px;
+    position: absolute;
+    transition: visibility 0s, opacity 0.25s ease-in;
+    visibility: hidden;
+    z-index: 999;
+
+    content: attr(data-tooltip);
+    top: 0;
+    right: 0;
+    transform: translateX(calc(100% + 15px))
+}
+
+nav .link::before {
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+    z-index: 999;
+
+    top: 50%;
+    right: 0;
+    transform: translate(calc(100% + 5px), -50%) rotate(45deg)
+}
+
+nav .link:hover::after,
+nav .link:hover::before {
+    opacity: 1;
+    visibility: visible
+}
+
+#body {
+    flex: 1
+}

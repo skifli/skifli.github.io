@@ -1,0 +1,25 @@
+@import url(./navbar.css);
+
+@import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;400&display=swap);
+
+:root {
+    --bg-colour: #1C1B1F;
+    --lighter-bg-colour: #28292A;
+    --lightest-bg-colour: #393C3C;
+    --text-colour: #F3EDF7;
+    --accent-colour: #004A77
+}
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth
+}
+
+body {
+    background-color: var(--bg-colour);
+    color: var(--text-colour);
+    display: flex;
+    font-family: "IBM Plex Sans", sans-serif;
+    margin: 0;
+    padding: 0
+}
