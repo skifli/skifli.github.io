@@ -14,5 +14,8 @@
         "mhutchie.git-graph",
         "pkief.material-icon-theme",
         "wakatime.vscode-wakatime"
+    ],
+    "unwantedRecommendations": [
+        "ms-vscode-remote.remote-containers",
     ]
 }
