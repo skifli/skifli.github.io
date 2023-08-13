@@ -1,0 +1,55 @@
+.tooltip::after {
+    background-color: var(--lighter-bg-colour);
+    border-radius: 10px;
+    content: attr(data-tooltip);
+    margin-top: 5px;
+    opacity: 0;
+    padding: 5px 10px;
+    position: absolute;
+    transition: visibility 0s, opacity 0.25s ease-in;
+    visibility: hidden;
+    z-index: 999
+}
+
+.tooltip::before {
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+    z-index: 999
+}
+
+.tooltip:hover::after,
+.tooltip:hover::before {
+    opacity: 1;
+    visibility: visible
+}
+
+.tooltip.tooltip-top::after {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, calc(-100% - 10px))
+}
+
+.tooltip.tooltip-top::before {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, calc(-100% - 5px)) rotate(45deg)
+}
+
+.tooltip.tooltip-right:before {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, calc(100% + 5px)) rotate(45deg)
+}
+
+.tooltip.tooltip-right::after {
+    top: 0;
+    right: 0;
+    transform: translateX(calc(100% + 10px))
+}
+
+.tooltip:hover::after,
+.tooltip:hover::before {
+    opacity: 1;
+    visibility: visible
+}
