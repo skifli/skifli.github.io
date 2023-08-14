@@ -24,3 +24,8 @@ body {
     margin: 0;
     padding: 0
 }
+
+a:visited,
+a:active {
+    color: var(--text-colour)
+}

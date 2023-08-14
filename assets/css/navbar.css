@@ -29,6 +29,14 @@ nav .link i:hover {
     transform: scale(1.1)
 }
 
+nav #links .link.tooltip-right::after {
+    transform: translateX(calc(100% + 15px))
+}
+
+nav #links .link.tooltip-top::after {
+    transform: translate(-50%, calc(-100% - 15px))
+}
+
 #body {
     flex: 1
 }
