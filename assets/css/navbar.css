@@ -37,6 +37,10 @@ nav #links .link.tooltip-top::after {
     transform: translate(-50%, calc(-100% - 15px))
 }
 
+nav #links a {
+    color: var(--text-colour)
+}
+
 #body {
     flex: 1
 }

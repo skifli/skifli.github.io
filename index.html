@@ -12,18 +12,18 @@
     <link href="assets/css/global.css" rel="stylesheet" />
 
     <script src="assets/js/global.js" defer></script>
-    <script src="https://kit.fontawesome.com/ac6f1daca4.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ac6f1daca4.js"></script>
 </head>
 
 <body>
     <nav>
         <div id="links">
-            <a onclick="changePage();" href="" id="nav_home">
+            <a onclick="changePage(event, this);" href="" id="nav_home">
                 <div class="link tooltip tooltip-top" data-tooltip="Home" id="current">
                     <i class="fa-solid fa-house" style="color: #ffffff;"></i>
                 </div>
             </a>
-            <a onclick="changePage();" href="./about-me/" id="nav_about-us">
+            <a onclick="changePage(event, this);" href="./about-me/" id="nav_about-me">
                 <div class="link tooltip tooltip-top" data-tooltip="About&nbsp;Me">
                     <i class="fa-solid fa-id-card" style="color: #ffffff;"></i>
                 </div>

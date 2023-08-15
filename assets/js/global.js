@@ -1,5 +1,9 @@
+const parser = new DOMParser();
+
+let head = document.querySelector("head");
+let body = document.querySelector("#body");
+
 let nav = document.querySelector("nav");
-let navLinks = nav.querySelector("#links");
 
 let previousMobile = true;
 
@@ -21,10 +25,10 @@ async function navbar() {
     }
 
     if (previousMobile !== mobile) {
-        let links = navLinks.getElementsByClassName("link");
+        let navLinks = nav.querySelectorAll("a");
 
-        for (let i = 0; i < links.length; i++) {
-            let link = links[i];
+        for (let i = 0; i < navLinks.length; i++) {
+            let link = navLinks[i];
 
             if (mobile) {
                 link.classList.remove("tooltip-right");
@@ -37,6 +41,31 @@ async function navbar() {
 
         previousMobile = mobile;
     }
+}
+
+async function changePage(event, target) {
+    event.preventDefault();
+
+    let page = target.getAttribute("href");
+    let pageURL = page.concat("index.html");
+
+    if (page === "") { // no page change
+        return;
+    }
+
+    let pageRaw = await (await fetch(pageURL)).text();
+    let pageParsed = parser.parseFromString(pageRaw, "text/html");
+
+    let title = pageParsed.querySelector("title").innerHTML;
+
+    history.pushState(null, title, page);
+
+    document.title = title;
+
+    nav.innerHTML = pageParsed.querySelector("nav").innerHTML;
+    body.innerHTML = pageParsed.querySelector("#body").innerHTML;
+
+    navbar();
 }
 
 window.addEventListener('resize', navbar);
