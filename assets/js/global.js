@@ -25,7 +25,7 @@ async function navbar() {
     }
 
     if (previousMobile !== mobile) {
-        let navLinks = nav.querySelectorAll("a");
+        let navLinks = nav.querySelectorAll("div");
 
         for (let i = 0; i < navLinks.length; i++) {
             let link = navLinks[i];
