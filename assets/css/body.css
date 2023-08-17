@@ -1,0 +1,5 @@
+#body {
+    animation: 1s fadeIn;
+    flex: 1;
+    padding: 5px
+}

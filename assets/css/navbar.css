@@ -51,11 +51,6 @@ nav #links a {
     }
 }
 
-#body {
-    animation: 1s fadeIn;
-    flex: 1;
-}
-
 @media only screen and (max-width: 600px) {
     nav {
         bottom: 0;
