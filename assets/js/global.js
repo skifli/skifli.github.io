@@ -56,12 +56,19 @@ async function changePage(event, target) {
     let pageRaw = await (await fetch(pageURL)).text();
     let pageParsed = parser.parseFromString(pageRaw, "text/html");
 
-    let title = pageParsed.querySelector("title").innerHTML;
+    let pageHead = pageParsed.querySelector("head");
 
-    history.pushState(null, title, page);
+    for (let i = 0; i < head.children.length; i++) {
+        let child = head.children[i];
 
-    document.title = title;
+        if (child.id.startsWith("fa-")) { // copy over font awesome icons cus their script only adds them on page load
+            pageHead.appendChild(child.cloneNode(true));
+        }
+    }
 
+    history.pushState(null, null, page);
+
+    head.innerHTML = pageHead.innerHTML;
     nav.innerHTML = pageParsed.querySelector("nav").innerHTML;
     body.innerHTML = pageParsed.querySelector("#body").innerHTML;
 
