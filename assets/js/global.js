@@ -70,7 +70,9 @@ async function changePage(event, target) {
 
     head.innerHTML = pageHead.innerHTML;
     nav.innerHTML = pageParsed.querySelector("nav").innerHTML;
-    body.innerHTML = pageParsed.querySelector("#body").innerHTML;
+
+    body.remove();
+    body = document.body.appendChild(pageParsed.querySelector("#body"));
 
     navbar();
 }
