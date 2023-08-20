@@ -1,15 +1,11 @@
 @import url(./body.css);
 @import url(./navbar.css);
-@import url(./tooltip.css);
 
 @import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;400;600&display=swap);
 
 :root {
-    --bg-colour: #1C1B1F;
-    --lighter-bg-colour: #28292A;
-    --lightest-bg-colour: #393C3C;
-    --text-colour: #F3EDF7;
-    --accent-colour: #004A77
+    --bg-colour: #F3EDF7;
+    --text-colour: #1C1B1F;
 }
 
 * {
