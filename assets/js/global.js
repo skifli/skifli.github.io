@@ -9,9 +9,12 @@ let previousMobile = true;
 
 function getWidth() {
   return Math.max(
-      document.body.scrollWidth, document.documentElement.scrollWidth,
-      document.body.offsetWidth, document.documentElement.offsetWidth,
-      document.documentElement.clientWidth);
+    document.body.scrollWidth,
+    document.documentElement.scrollWidth,
+    document.body.offsetWidth,
+    document.documentElement.offsetWidth,
+    document.documentElement.clientWidth,
+  );
 }
 
 async function navbar() {
@@ -46,7 +49,8 @@ async function changePage(event, target) {
   let page = target.getAttribute("href");
   let pageURL = page.concat("index.html");
 
-  if (page === "") { // no page change
+  if (page === "") {
+    // no page change
     return;
   }
 
@@ -58,8 +62,9 @@ async function changePage(event, target) {
   for (let i = 0; i < head.children.length; i++) {
     let child = head.children[i];
 
-    if (child.id.startsWith("fa-")) { // copy over font awesome icons cus their
-                                      // script only adds them on page load
+    if (child.id.startsWith("fa-")) {
+      // copy over font awesome icons cus their
+      // script only adds them on page load
       pageHead.appendChild(child.cloneNode(true));
     }
   }
@@ -75,6 +80,8 @@ async function changePage(event, target) {
   navbar();
 }
 
-window.addEventListener('resize', navbar);
+window.addEventListener("resize", navbar);
 
-window.addEventListener('load', function() { navbar(); });
+window.addEventListener("load", function () {
+  navbar();
+});
