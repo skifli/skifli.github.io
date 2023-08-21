@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Skifli's Blog</title>
+		<link>https://skifli.github.io/blog</link>
+		<description>My Blog</description>
+		<item>
+			<title>Website Rewrite</title>
+			<description>New website design!</description>
+			<link>https://skifli.github.io/blog/2023/website-rewrite.html</link>
+			<pubDate>Mon, 21 Aug 2023</pubDate>
+		</item>
+	</channel>
+</rss>

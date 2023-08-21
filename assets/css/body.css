@@ -1,6 +1,0 @@
-#body {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: var(--contents-width);
-}
