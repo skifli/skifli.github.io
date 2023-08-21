@@ -1,4 +1,4 @@
-import {parseBlogs} from "../helpers.js";
+import { parseBlogs } from "../helpers.js";
 
 window.addEventListener("load", async () => {
   let rssBlogs = await parseBlogs();

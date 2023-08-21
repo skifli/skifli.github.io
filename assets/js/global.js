@@ -10,8 +10,9 @@ async function changePage(event) {
   const page = event.target.href;
   const pageURL = page.concat("index.html");
 
-  if (page === "") { // no change
-    return
+  if (page === "") {
+    // no change
+    return;
   }
 
   let pageRaw = await (await fetch(pageURL)).text();

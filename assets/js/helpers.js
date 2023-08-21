@@ -7,17 +7,17 @@ export async function parseBlogs() {
 
   let items = [];
 
-  rssItems.forEach(item => {
+  rssItems.forEach((item) => {
     let title = item.querySelector("title").innerHTML;
     let link = item.querySelector("link").innerHTML;
     let description = item.querySelector("description").innerHTML;
     let pubDate = item.querySelector("pubDate").innerHTML;
 
     items.push({
-      title : title,
-      link : link,
-      description : description,
-      pubDate : pubDate
+      title: title,
+      link: link,
+      description: description,
+      pubDate: pubDate,
     });
   });
 
