@@ -4,6 +4,7 @@ nav {
 }
 
 nav a {
+    border: none;
     color: var(--text-color);
     text-decoration: none;
 }
@@ -20,11 +21,12 @@ nav ul {
     margin: 0;
 }
 
-nav ul li {
+nav ul li a {
     transition: margin 0.5s;
 }
 
-nav ul li#current,
-nav ul li:hover {
+nav ul li a#current,
+nav ul li a:hover {
+    border: none;
     margin-left: 5px;
 }

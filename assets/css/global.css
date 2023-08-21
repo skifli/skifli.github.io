@@ -10,12 +10,12 @@
     --navbar-width: 125px;
     --contents-width: 500px;
 
-    --h1-font-size: 28px;
-    --h2-font-size: 26px;
-    --h3-font-size: 24px;
-    --h4-font-size: 22px;
-    --h5-font-size: 18px;
-    --h6-font-size: 16px;
+    --h1-font-size: 27px;
+    --h2-font-size: 25px;
+    --h3-font-size: 23px;
+    --h4-font-size: 21px;
+    --h5-font-size: 19px;
+    --h6-font-size: 17px;
     --p-font-size: 14px;
     --h1-margin-bottom: 11px;
     --h2-margin-bottom: 9px;
@@ -24,6 +24,8 @@
     --h5-margin-bottom: 3px;
     --h6-margin-bottom: 1px;
     --p-margin-bottom: 10px;
+
+    --link-colour: #337DF8;
 }
 
 * {
@@ -80,4 +82,16 @@ p {
     font-weight: 400;
     margin-bottom: var(--p-margin-bottom);
     text-align: justify
+}
+
+a {
+    border-bottom: 1px solid transparent;
+    border-bottom-color: transparent;
+    color: var(--link-colour);
+    text-decoration: none;
+    transition: border-color 0.25s ease-in;
+}
+
+a:hover {
+    border-color: black;
 }

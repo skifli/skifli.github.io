@@ -10,6 +10,9 @@
     <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/121291719" />
 
     <link href="assets/css/global.css" rel="stylesheet" />
+    <link href="assets/css/pages/index.css" rel="stylesheet" />
+
+    <script src="assets/js/global.js" defer></script>
 </head>
 
 <body>
@@ -17,18 +20,44 @@
         <a id="title">skifli</a>
 
         <ul>
-            <li id="current"><a href="./" onclick="">home</a></li>
-            <li><a href="./about" onclick="">about</a></li>
-            <li><a href="./projects" onclick="">projects</a></li>
-            <li><a href="./blog" onclick="">blog</a></li>
-            <li><a href="./contact" onclick="">contact</a></li>
+            <li><a href="./" onclick="changePage(event);" id="current">home</a></li>
+            <li><a href="./about/" onclick="changePage(event);">about</a></li>
+            <li><a href="./projects/" onclick="changePage(event);">projects</a></li>
+            <li><a href="./blog/" onclick="changePage(event);">blog</a></li>
+            <li><a href="./photography/" onclick="changePage(event);">photography</a></li>
+            <li><a href="./contact/" onclick="changePage(event);">contact</a></li>
         </ul>
     </nav>
 
     <div id="body">
         <h1>Welcome</h1>
 
-        <p>Hello, I'm skifli (prounouced /skif-lee/). Welcome to my home away from home :3! </p>
+        <p>
+            Hello, I'm skifli. I'm a full-stack trained developer and an expert table tennis player. I have over three
+            years experience designing and implementing custom full-stack solutions using a plethora of technologies.
+        </p>
+
+        <p>
+            I started programming in 2020, and have since developed a passion for it. I have experience with multiple
+            industry standard and emerging technologies, including multi-year experience in 4 / 5 of the most popular
+            technologies according to <a
+                href="https://survey.stackoverflow.co/2023/#section-most-popular-technologies-programming-scripting-and-markup-languages"
+                target="_blank">Stack
+                Overflow's 2023 Developer Survey</a>.
+        </p>
+
+        <p>
+            One of my most notable projects is <a href="https://github.com/exeme-project/exeme-lang" target="_blank">the
+                exeme language</a>, a programming language I created in late 2022. It is a compiled, statically typed
+            language with a focus on simplicity, scalability, and performance. It is currently in development, and I am
+            working on a compiler for it.
+        </p>
+
+        <h2>Latest Blogs</h2>
+
+        <ul id="blogs">
+            <p>There seems to be a defecit of blogs here. Check back later!</p>
+        </ul>
     </div>
 </body>
 
