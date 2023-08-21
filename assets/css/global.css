@@ -1,11 +1,29 @@
 @import url(./body.css);
 @import url(./navbar.css);
 
-@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;400;600&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap);
 
 :root {
-    --bg-colour: #F3EDF7;
-    --text-colour: #1C1B1F;
+    --bg-colour: #F9F9F9;
+    --text-colour: #171C20;
+
+    --navbar-width: 125px;
+    --contents-width: 500px;
+
+    --h1-font-size: 28px;
+    --h2-font-size: 26px;
+    --h3-font-size: 24px;
+    --h4-font-size: 22px;
+    --h5-font-size: 18px;
+    --h6-font-size: 16px;
+    --p-font-size: 14px;
+    --h1-margin-bottom: 11px;
+    --h2-margin-bottom: 9px;
+    --h3-margin-bottom: 7px;
+    --h4-margin-bottom: 5px;
+    --h5-margin-bottom: 3px;
+    --h6-margin-bottom: 1px;
+    --p-margin-bottom: 10px;
 }
 
 * {
@@ -16,8 +34,50 @@
 body {
     background-color: var(--bg-colour);
     color: var(--text-colour);
-    display: flex;
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Heebo', monospace;
     margin: 20px;
     padding: 0
+}
+
+h1 {
+    font-size: var(--h1-font-size);
+    font-weight: 700;
+    margin-bottom: var(--h1-margin-bottom)
+}
+
+h2 {
+    font-size: var(--h2-font-size);
+    font-weight: 700;
+    margin-bottom: var(--h2-margin-bottom)
+}
+
+h3 {
+    font-size: var(--h3-font-size);
+    font-weight: 600;
+    margin-bottom: var(--h3-margin-bottom)
+}
+
+h4 {
+    font-size: var(--h4-font-size);
+    font-weight: 600;
+    margin-bottom: var(--h4-margin-bottom)
+}
+
+h5 {
+    font-size: var(--h5-font-size);
+    font-weight: 500;
+    margin-bottom: var(--h5-margin-bottom)
+}
+
+h6 {
+    font-size: var(--h6-font-size);
+    font-weight: 500;
+    margin-bottom: var(--h6-margin-bottom)
+}
+
+p {
+    font-size: var(--p-font-size);
+    font-weight: 400;
+    margin-bottom: var(--p-margin-bottom);
+    text-align: justify
 }

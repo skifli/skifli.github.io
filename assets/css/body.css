@@ -2,5 +2,5 @@
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    width: 25%;
+    width: var(--contents-width);
 }

@@ -1,4 +1,30 @@
+nav {
+    position: absolute;
+    width: var(--navbar-width);
+}
+
 nav a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+nav a#title {
     font-size: 20px;
     font-weight: 600;
+    text-decoration: underline;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    transition: margin 0.5s;
+}
+
+nav ul li#current,
+nav ul li:hover {
+    margin-left: 5px;
 }
