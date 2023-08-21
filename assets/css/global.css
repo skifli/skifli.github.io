@@ -1,26 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap");
+@import url(./navbar.css);
 
-/* start global variables */
+@import url(https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap);
 
 :root {
-    /* color variables */
-    --bg-color: #F9F9F9;
-    --font-color-default: #171C20;
-    --font-color-muted: #999;
-    --link-color: #337DF8;
-    --link-color_hover: #2565CC;
+    --bg-colour: #F9F9F9;
+    --text-colour: #171C20;
+    --text-color-muted: #999;
 
-    /* body variables */
-    --body-padding-top: 25px;
+    --navbar-width: 125px;
+    --contents-width: 500px;
 
-    /* font variables */
-    --h1-font-size: 28px;
+    --h1-font-size: 27px;
     --h2-font-size: 25px;
     --h3-font-size: 23px;
-    --h4-font-size: 20px;
-    --h5-font-size: 18px;
-    --h6-font-size: 15px;
-    --p-font-size: 13px;
+    --h4-font-size: 21px;
+    --h5-font-size: 19px;
+    --h6-font-size: 17px;
+    --p-font-size: 14px;
     --h1-margin-bottom: 11px;
     --h2-margin-bottom: 9px;
     --h3-margin-bottom: 7px;
@@ -29,188 +25,98 @@
     --h6-margin-bottom: 1px;
     --p-margin-bottom: 10px;
 
-    /* navbar variables */
-    --navbar-width: 125px;
-    --navbar_item-padding-left: 25px;
-    --navbar_item-padding-left_hover: 30px;
-
-    /* contents variables */
-    --contents-lmargin: 10px;
-    --contents-width: 500px
+    --link-colour: #337DF8;
 }
-
-/* end global variables */
-/* start page setup */
 
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
     scroll-behavior: smooth
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--font-color-default);
-    font-family: "Roboto Mono", monospace;
-    padding-top: var(--body-padding-top);
-    position: static
+    background-color: var(--bg-colour);
+    color: var(--text-colour);
+    font-family: 'Heebo', monospace;
+    margin: 20px;
+    padding: 0
 }
-
-a {
-    border-bottom: 1px solid transparent;
-    color: var(--link-color);
-    text-decoration: none;
-    transition: color 0.25s ease-in, border-color 0.25s ease-in
-}
-
-a:hover {
-    border-color: black;
-    color: var(--link-color_hover)
-}
-
-/* end page setup */
-/* start font setup */
 
 h1 {
     font-size: var(--h1-font-size);
     font-weight: 700;
-    margin-bottom: var(--h1-margin-bottom)
+    margin-bottom: var(--h1-margin-bottom);
+    margin-top: 0
 }
 
 h2 {
     font-size: var(--h2-font-size);
     font-weight: 700;
-    margin-bottom: var(--h2-margin-bottom)
+    margin-bottom: var(--h2-margin-bottom);
+    margin-top: 0
 }
 
 h3 {
     font-size: var(--h3-font-size);
     font-weight: 600;
-    margin-bottom: var(--h3-margin-bottom)
+    margin-bottom: var(--h3-margin-bottom);
+    margin-top: 0
 }
 
 h4 {
     font-size: var(--h4-font-size);
     font-weight: 600;
-    margin-bottom: var(--h4-margin-bottom)
+    margin-bottom: var(--h4-margin-bottom);
+    margin-top: 0
 }
 
 h5 {
     font-size: var(--h5-font-size);
     font-weight: 500;
-    margin-bottom: var(--h5-margin-bottom)
+    margin-bottom: var(--h5-margin-bottom);
+    margin-top: 0
 }
 
 h6 {
     font-size: var(--h6-font-size);
     font-weight: 500;
-    margin-bottom: var(--h6-margin-bottom)
+    margin-bottom: var(--h6-margin-bottom);
+    margin-top: 0
 }
 
 p {
     font-size: var(--p-font-size);
     font-weight: 400;
     margin-bottom: var(--p-margin-bottom);
+    margin-top: 0;
     text-align: justify
 }
 
-/* end font setup */
-/* start scrollbar setup */
-
-::-webkit-scrollbar {
-    height: 16px;
-    width: 16px;
-    z-index: 1
-}
-
-::-webkit-scrollbar,
-::-webkit-scrollbar-track {
-    background-color: transparent
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #a0a0a5;
-    border: 4px solid #fff;
-    border-radius: 16px
-}
-
-::-webkit-scrollbar-button {
-    display: none
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: #a0a0a5;
-    border: 4px solid #f4f4f4
-}
-
-/* end scrollbar setup */
-/* start navbar setup */
-
-#navbar {
-    position: absolute;
-    width: var(--navbar-width)
-}
-
-#navbar ul li a {
-    border: none;
-    color: var(--font-color-muted);
-    font-size: var(--h6-font-size);
-    padding-left: var(--navbar_item-padding-left);
+a {
+    border-bottom: 1px solid transparent;
+    border-bottom-color: transparent;
+    color: var(--link-colour);
     text-decoration: none;
-    transition: color 0.25s ease-in, padding-left .25s ease-in
+    transition: border-color 0.25s ease-in;
 }
 
-#navbar ul li a:hover {
-    color: var(--font-color-default);
-    padding-left: var(--navbar_item-padding-left_hover)
+a:hover {
+    border-color: black;
 }
 
-#navbar ul li a#current {
-    color: var(--link-color)
+ul#blogs {
+    list-style: none;
+    padding: 0;
 }
 
-#navbar ul li a#current:hover {
-    color: var(--link-color_hover)
+ul#blogs li p {
+    color: var(--text-color-muted);
+    font-weight: 700;
+    float: right;
 }
 
-/* end navbar setup */
-/* start contents setup */
-
-#contents {
-    margin-left: calc(var(--navbar-width) + var(--contents-lmargin));
-    width: var(--contents-width)
-}
-
-/* end contents setup */
-
-/* var(--navbar-width) + var(--contents-lmargin) + var(--contents-width) */
-@media only screen and (max-width: 635px) {
-    :root {
-        /* navbar variables */
-        --navbar-margin-bottom: 10px;
-
-        /* contents variables */
-        --contents-padding-lr: 25px
-    }
-
-    #navbar {
-        position: inherit;
-        margin-bottom: var(--navbar-margin-bottom);
-        width: 100%
-    }
-
-    #contents {
-        margin-left: 0px;
-        padding: 0px var(--contents-padding-lr) 0px var(--contents-padding-lr);
-        width: 100%
+/* var(--navbar-width) + var(--contents-width) */
+@media only screen and (max-width: 750px) {
+    ul#blogs li p {
+        float: initial;
     }
 }
-
-/* start misc rules */
-
-#api-declaration {
-    font-style: italic;
-}
-
-/* end misc rules */

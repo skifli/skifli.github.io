@@ -1,14 +1,22 @@
 {
+    // Update `../.devcontainer/devcontainer.json` as well.
     "recommendations": [
         "albert.tabout",
         "alexanderte.dainty-one-dark-pro-vscode",
         "christian-kohler.path-intellisense",
         "donjayamanne.githistory",
+        "github.copilot",
+        "github.copilot-chat",
+        "github.copilot-labs",
+        "github.vscode-github-actions",
         "gruntfuggly.todo-tree",
         "leonardssh.vscord",
         "mhutchie.git-graph",
         "pkief.material-icon-theme",
-        "redhat.vscode-yaml",
-        "ritwickdey.liveserver",
+        "wakatime.vscode-wakatime",
+        "yandeu.five-server"
     ],
+    "unwantedRecommendations": [
+        "ms-vscode-remote.remote-containers",
+    ]
 }

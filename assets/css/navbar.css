@@ -1,0 +1,52 @@
+nav {
+    position: fixed;
+    z-index: 999;
+    width: var(--navbar-width);
+}
+
+nav a {
+    border: none;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+nav a#title {
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    transition: margin 0.5s;
+}
+
+nav ul li a#current,
+nav ul li a:hover {
+    border: none;
+    margin-left: 5px;
+}
+
+#body {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--contents-width);
+}
+
+@media only screen and (max-width: 750px) {
+    nav {
+        position: initial;
+        margin-bottom: 10px;
+        width: 100%
+    }
+
+    #body {
+        width: 100%
+    }
+}
