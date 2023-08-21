@@ -115,7 +115,7 @@ ul#blogs li p {
 }
 
 /* var(--navbar-width) + var(--contents-width) */
-@media only screen and (max-width: 625px) {
+@media only screen and (max-width: 750px) {
     ul#blogs li p {
         float: initial;
     }

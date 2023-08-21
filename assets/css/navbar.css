@@ -39,8 +39,7 @@ nav ul li a:hover {
     width: var(--contents-width);
 }
 
-/* var(--navbar-width) + var(--contents-width) */
-@media only screen and (max-width: 625px) {
+@media only screen and (max-width: 750px) {
     nav {
         position: initial;
         margin-bottom: 10px;
