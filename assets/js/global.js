@@ -23,5 +23,5 @@ async function changePage(event) {
     nav.innerHTML = pageParsed.querySelector("nav").innerHTML;
     body.innerHTML = pageParsed.querySelector("#body").innerHTML;
 
-    dispatchEvent(new Event("load"));
+    window.dispatchEvent(new Event("load"));
 }

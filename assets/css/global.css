@@ -108,7 +108,7 @@ ul#blogs {
     padding: 0;
 }
 
-ul#blogs p {
+ul#blogs li p {
     color: var(--text-color-muted);
     font-weight: 700;
     float: right;
@@ -116,7 +116,7 @@ ul#blogs p {
 
 /* var(--navbar-width) + var(--contents-width) */
 @media only screen and (max-width: 625px) {
-    ul#blogs p {
+    ul#blogs li p {
         float: initial;
     }
 }
