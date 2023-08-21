@@ -5,23 +5,23 @@ let nav = document.querySelector("nav");
 let body = document.querySelector("#body");
 
 async function changePage(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const page = event.target.href;
-    const pageURL = page.concat("index.html");
+  const page = event.target.href;
+  const pageURL = page.concat("index.html");
 
-    if (page === "") { // no change
-        return
-    }
+  if (page === "") { // no change
+    return
+  }
 
-    let pageRaw = await (await fetch(pageURL)).text();
-    let pageParsed = parser.parseFromString(pageRaw, "text/html");
+  let pageRaw = await (await fetch(pageURL)).text();
+  let pageParsed = parser.parseFromString(pageRaw, "text/html");
 
-    history.pushState(null, null, page);
+  history.pushState(null, null, page);
 
-    head.innerHTML = pageParsed.querySelector("head").innerHTML;
-    nav.innerHTML = pageParsed.querySelector("nav").innerHTML;
-    body.innerHTML = pageParsed.querySelector("#body").innerHTML;
+  head.innerHTML = pageParsed.querySelector("head").innerHTML;
+  nav.innerHTML = pageParsed.querySelector("nav").innerHTML;
+  body.innerHTML = pageParsed.querySelector("#body").innerHTML;
 
-    window.dispatchEvent(new Event("load"));
+  window.dispatchEvent(new Event("load"));
 }
