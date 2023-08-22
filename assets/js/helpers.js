@@ -23,7 +23,13 @@ async function parseBlogs() {
 }
 
 async function displayBlogs(n = -1) {
-  let rssBlogs = (await parseBlogs()).slice(0, n);
+  let rssBlogs = await parseBlogs();
+
+  if (n == -1) {
+    n = rssBlogs.length;
+  }
+
+  rssBlogs = rssBlogs.slice(0, n);
 
   let blogs = document.querySelectorAll("#blogs");
 
