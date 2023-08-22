@@ -6,6 +6,16 @@ let head = document.querySelector("head");
 let nav = document.querySelector("nav");
 let body = document.querySelector("#body");
 
+function updateN() {
+  n = null;
+
+  head.querySelectorAll("script").forEach((script) => {
+    if (script.id === "n") {
+      n = parseInt(script.innerHTML);
+    }
+  });
+}
+
 async function changePage(event) {
   event.preventDefault();
 
@@ -26,13 +36,7 @@ async function changePage(event) {
   nav.innerHTML = pageParsed.querySelector("nav").innerHTML;
   body.innerHTML = pageParsed.querySelector("#body").innerHTML;
 
-  n = null;
-
-  pageParsed.querySelectorAll("script").forEach((script) => {
-    if (script.id === "n") {
-      n = parseInt(script.innerHTML);
-    }
-  });
+  updateN();
 
   displayBlogs();
 }
@@ -92,4 +96,7 @@ async function displayBlogs() {
   }
 }
 
-window.addEventListener("load", displayBlogs);
+window.addEventListener("load", async function () {
+  updateN();
+  await displayBlogs();
+});
