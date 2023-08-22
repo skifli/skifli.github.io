@@ -42,6 +42,7 @@ async function displayBlogs(n = -1) {
 
     blogTitle.innerHTML = blog.title;
     blogTitle.href = blog.link;
+    blogTitle.onclick = "changePage(event);";
 
     blogPubDate.innerHTML = blog.pubDate;
 
