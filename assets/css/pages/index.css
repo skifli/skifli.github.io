@@ -3,3 +3,7 @@ ul#blogs {
     padding: 0;
     margin: 0;
 }
+
+ul#blogs li p {
+    margin-bottom: 0px;
+}

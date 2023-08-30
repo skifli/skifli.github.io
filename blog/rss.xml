@@ -5,6 +5,12 @@
 		<link>https://skifli.github.io/blog</link>
 		<description>My Blog</description>
 		<item>
+			<title>Pyattr in-depth explanation</title>
+			<description>An in-depth explanation and look at the inner workings of pyattr.</description>
+			<link>https://skifli.github.io/blog/2023/pyattr-in-depth-explanation.html</link>
+			<pubDate>Wed, 30 Aug 2023</pubDate>
+		</item>
+		<item>
 			<title>Website Rewrite</title>
 			<description>New website design!</description>
 			<link>https://skifli.github.io/blog/2023/website-rewrite.html</link>
