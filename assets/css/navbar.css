@@ -2,6 +2,8 @@ nav {
     position: fixed;
     z-index: 999;
     width: var(--navbar-width);
+    background-color: white;
+    padding: 5px;
 }
 
 nav a {
@@ -33,9 +35,9 @@ nav ul li a:hover {
 }
 
 #body {
+    padding: 10px;
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    left: calc(var(--navbar-width) + 20px);
     width: var(--contents-width);
 }
 
@@ -47,6 +49,7 @@ nav ul li a:hover {
     }
 
     #body {
-        width: 100%
+        left: 0%;
+        width: 100%;
     }
 }

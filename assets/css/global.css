@@ -5,7 +5,7 @@
 :root {
     --bg-colour: #F9F9F9;
     --text-colour: #171C20;
-    --text-color-muted: #999;
+    --text-color-muted: #666666;
 
     --navbar-width: 125px;
     --contents-width: 500px;
@@ -35,10 +35,13 @@
 
 body {
     background-color: var(--bg-colour);
+    background-image: url(../img/featured.png);
+    background-position: center;
+    background-repeat: no-repeat;
     color: var(--text-colour);
     font-family: 'Heebo', monospace;
     margin: 20px;
-    padding: 0
+    padding: 0;
 }
 
 h1 {
@@ -91,16 +94,24 @@ p {
     text-align: justify
 }
 
+p:last-child {
+    margin-bottom: 0px;
+}
+
+.island {
+    backdrop-filter: blur(25px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.57);
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    border-radius: 11px;
+}
+
 a {
-    border-bottom: 1px solid transparent;
-    border-bottom-color: transparent;
     color: var(--link-colour);
     text-decoration: none;
-    transition: border-color 0.25s ease-in;
 }
 
 a:hover {
-    border-color: black;
+    text-decoration: underline;
 }
 
 ul#blogs {
@@ -116,6 +127,10 @@ ul#blogs li p {
 
 /* var(--navbar-width) + var(--contents-width) */
 @media only screen and (max-width: 750px) {
+    body {
+        background-image: url(../img/featured-mobile.jpg);
+    }
+
     ul#blogs li p {
         float: initial;
     }
