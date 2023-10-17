@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400&display=swap");
 
 /* global */
 
@@ -33,6 +33,12 @@ body {
 p {
     font-size: 0.85rem;
     font-weight: 400;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+p:last-child {
+    margin-bottom: 0px;
 }
 
 /* island */
@@ -41,6 +47,7 @@ p {
     backdrop-filter: blur(25px) saturate(180%);
     background-color: #F3F3F3;
     border-radius: 8px;
+    position: absolute;
 }
 
 .island .toolbar {
@@ -48,6 +55,7 @@ p {
     background-color: #E5E5E5;
     border-bottom: 1px solid #DDDDDD;
     border-radius: 8px 8px 0px 0px;
+    cursor: move;
     display: flex;
 }
 
@@ -56,6 +64,7 @@ p {
     align-items: center;
     flex-grow: 1;
     padding-left: 10px;
+    pointer-events: none;
     z-index: 999;
 }
 
@@ -66,6 +75,10 @@ p {
 .island .toolbar .title span,
 .island .toolbar .title p {
     font-size: 0.75rem;
+}
+
+.island .toolbar .action-buttons {
+    cursor: initial;
 }
 
 .island .toolbar .action-buttons .icon {
@@ -85,5 +98,34 @@ p {
 }
 
 .island .contents {
-    padding: 10px;
+    padding: 1rem;
+}
+
+.island .footer {
+    align-items: flex-end;
+    background-color: #D9D9D9;
+    border-top: 1px solid #DDDDDD;
+    border-radius: 0px 0px 8px 8px;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+}
+
+.island .footer button {
+    background-color: #0067C0;
+    border: none;
+    border-radius: 4px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.island .footer button:hover {
+    background-color: #0062B6;
+}
+
+.island .footer button p {
+    font-weight: 100;
 }
