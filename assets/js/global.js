@@ -1,5 +1,7 @@
 import jsCookie from 'https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/+esm'
 
+let body = document.getElementsByTagName("body")[0];
+
 function moveIsland(event) {
     event.preventDefault();
 
@@ -14,8 +16,27 @@ function moveIsland(event) {
         pos1 = event.clientX;
         pos2 = event.clientY;
 
-        element.style.top = (element.offsetTop - pos4) + "px";
-        element.style.left = (element.offsetLeft - pos3) + "px";
+        let newX = element.offsetLeft - pos3;
+        let newY = element.offsetTop - pos4;
+
+        if (newX < 0) {
+            newX = 0;
+        }
+
+        if (newY < 0) {
+            newY = 0;
+        }
+
+        if (newX > window.innerWidth - element.offsetWidth) {
+            newX = window.innerWidth - element.offsetWidth;
+        }
+
+        if (newY > window.innerHeight - element.offsetHeight) {
+            newY = window.innerHeight - element.offsetHeight;
+        }
+
+        element.style.top = newY + "px";
+        element.style.left = newX + "px";
     }
 
     function stopIslandMove() {
@@ -104,6 +125,11 @@ function resizeIsland(event) {
     window.addEventListener('mouseup', stopResize)
 }
 
+function middleize(element) {
+    element.style.top = (window.innerHeight / 2) - (element.offsetHeight / 2) + "px";
+    element.style.left = (window.innerWidth / 2) - (element.offsetWidth / 2) + "px";
+}
+
 function moveMiddleDivsToCenter() {
     let style = document.createElement("style");
     style.innerHTML = `.middle {
@@ -117,8 +143,7 @@ function moveMiddleDivsToCenter() {
     let element = null;
 
     for (element of document.getElementsByClassName("middle")) {
-        element.style.top = (window.innerHeight / 2) - (element.offsetHeight / 2) + "px";
-        element.style.left = (window.innerWidth / 2) - (element.offsetWidth / 2) + "px";
+        middleize(element);
     }
 }
 
@@ -155,9 +180,71 @@ function giveLifeToIslands() {
     }
 }
 
+function hideInfo() {
+    let infoIsland = document.getElementById("info-island");
+
+    infoIsland.remove();
+    jsCookie.set("tutorialSeen", "true", { expires: 7 });
+}
+
+function checkForInfo() {
+    const tutorialSeen = jsCookie.get("tutorialSeen");
+
+    if (tutorialSeen != "true") {
+        let tutorialIsland = document.createElement("div");
+        tutorialIsland.classList = "island middle";
+        tutorialIsland.id = "info-island";
+        tutorialIsland.style.width = "300px";
+
+        tutorialIsland.innerHTML = `<div class='resizers'>
+        <div class='resizer top-left'></div>
+        <div class='resizer top-right'></div>
+        <div class='resizer bottom-left'></div>
+        <div class='resizer bottom-right'></div>
+    </div>
+    <div class="toolbar">
+        <div class="title">
+            <span class="material-symbols-outlined">
+                info
+            </span>
+            <p>Info</p>
+        </div>
+        <div class="action-buttons">
+            <div class="icon close">
+                <img src="assets/img/close.png" alt="Close" />
+            </div>
+        </div>
+    </div>
+    <div class="body">
+        <div class="contents">
+            <p>Welcome to my home on the web, where you can create, drag, and resize windows to your heart's
+                content.
+                Now that I've told you the premise of this site, just click below to begin your journey.</p>
+
+            <p>Oh and before you ask, I did make this myself. No fancy frameworks, just plain ol' HTML, CSS, and JS.
+                Enjoy your stay.</p>
+
+            <p>Yours truly - © skifli 2023.</p>
+        </div>
+        <div class="footer">
+            <button>
+                <p>Ok, don't show again</p>
+            </button>
+        </div>
+    </div>`;
+
+        tutorialIsland.getElementsByClassName("footer")[0].getElementsByTagName("button")[0].onclick = hideInfo;
+
+        body.appendChild(tutorialIsland);
+        middleize(tutorialIsland);
+    }
+}
+
 window.addEventListener("load", function () {
     this.document.getElementById("js-required").remove();
 
     giveLifeToIslands();
     moveMiddleDivsToCenter();
+
+    checkForInfo();
 });
