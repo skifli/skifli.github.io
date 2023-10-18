@@ -1,6 +1,17 @@
 import jsCookie from 'https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/+esm'
 
+const pages = {
+    "home": "",
+    "about": "about",
+    "projects": "projects",
+    "blog": "blog",
+    "photography": "photography",
+    "contact": "contact",
+};
+
 let body = document.getElementsByTagName("body")[0];
+let nav = null;
+let islands = {};
 
 function moveIsland(event) {
     event.preventDefault();
@@ -180,11 +191,81 @@ function giveLifeToIslands() {
     }
 }
 
+function createWindow(element, width, resizeable, icon, title, closeButton) {
+    element.classList.add("island");
+    element.style.width = `${width}px`;
+    element.innerHTML = `<div class='resizers ${resizeable ? "" : "unresizable"}'>
+    <div class='resizer top-left'></div>
+    <div class='resizer top-right'></div>
+    <div class='resizer bottom-left'></div>
+    <div class='resizer bottom-right'></div>
+</div>
+<div class="toolbar">
+    <div class="title">
+        <span class="material-symbols-outlined">
+            ${icon}
+        </span>
+        <p>${title}</p>
+    </div>
+    <div class="action-buttons">
+        <div class="icon close" style="display: ${closeButton ? "initial" : "none"};">
+            <img src="assets/img/close.png" alt="Close" />
+        </div>
+    </div>
+</div>
+<div class="body">
+    <div class="contents">
+    </div>
+</div>`;
+}
+
+function placeIsland(element) {
+    if (Object.keys(islands).length == 0) {
+        element.style.left = "10px";
+        element.style.top = "10px";
+
+        islands[10] = element;
+    } else {
+        let furthestX = parseInt(Object.keys(islands).reduce((a, b) => obj[a] > obj[b] ? a : b));
+        let newX = furthestX + islands[furthestX].offsetWidth + 10;
+
+        element.style.left = `${newX}px`;
+        element.style.top = "10px";
+    }
+}
+
+function buildNav() {
+    nav = document.createElement("nav");
+    createWindow(nav, 150, false, "menu", "Menu", false);
+
+    let contents = nav.getElementsByClassName("body")[0].getElementsByClassName("contents")[0];
+
+    for (let page in pages) {
+        let navItem = document.createElement("div");
+        navItem.classList = "nav-item";
+        navItem.innerHTML = `<a href="${body.dataset.homeurl}${pages[page]}" id="${page == body.dataset.page ? "current" : ""}">${page}</a>`;
+
+        contents.appendChild(navItem);
+    }
+}
+
+function setupPage() {
+    body.appendChild(nav);
+
+    let pageContents = document.getElementById("page-contents");
+    pageContents.style.display = "initial";
+
+    placeIsland(nav);
+    placeIsland(pageContents);
+}
+
 function hideInfo() {
     let infoIsland = document.getElementById("info-island");
 
     infoIsland.remove();
     jsCookie.set("tutorialSeen", "true", { expires: 7 });
+
+    setupPage();
 }
 
 function checkForInfo() {
@@ -236,15 +317,17 @@ function checkForInfo() {
         tutorialIsland.getElementsByClassName("footer")[0].getElementsByTagName("button")[0].onclick = hideInfo;
 
         body.appendChild(tutorialIsland);
-        middleize(tutorialIsland);
+    } else {
+        setupPage();
     }
 }
 
 window.addEventListener("load", function () {
     this.document.getElementById("js-required").remove();
 
+    buildNav(); // has to be done before checkForInfo()
+    checkForInfo();
+
     giveLifeToIslands();
     moveMiddleDivsToCenter();
-
-    checkForInfo();
 });

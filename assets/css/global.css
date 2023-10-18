@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500&display=swap");
 
 /* global */
 
 :root {
-    --bg-colour: #171C20;
+    --bg-colour: #0E0E0E;
     --text-colour: #171C20;
     --text-color-muted: #666666;
-    --link-colour: #337DF8;
+    --accent-colour: #0067C0;
 }
 
 * {
@@ -28,6 +28,15 @@ body {
 
     color: var(--text-colour);
     background-color: var(--bg-colour);
+
+    width: 100vw;
+    height: 100vh;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 10px;
 }
 
 p {
@@ -39,6 +48,15 @@ p {
 
 p:last-child {
     margin-bottom: 0px;
+}
+
+a {
+    color: var(--accent-colour);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 /* island */
@@ -78,6 +96,7 @@ p:last-child {
 .island .toolbar .title span,
 .island .toolbar .title p {
     font-size: 0.75rem;
+    font-weight: 300;
 }
 
 .island .toolbar .action-buttons {
@@ -139,7 +158,6 @@ p:last-child {
 }
 
 .island .footer button p {
-    font-weight: 100;
     text-align: center;
 }
 
@@ -148,6 +166,10 @@ p:last-child {
     height: 100%;
     position: absolute;
     pointer-events: none;
+}
+
+.island .resizers.unresizable {
+    display: none;
 }
 
 .island .resizers .resizer {
@@ -189,4 +211,25 @@ p:last-child {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+/* nav */
+
+.nav-item {
+    font-size: 0.85rem;
+}
+
+.nav-item a {
+    color: var(--text-colour);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out, margin-left 0.2s ease-in-out;
+}
+
+.nav-item a:hover,
+.nav-item a#current {
+    margin-left: 5px;
+}
+
+.nav-item a:hover {
+    color: var(--accent-colour);
 }
