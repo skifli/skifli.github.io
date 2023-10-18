@@ -252,6 +252,16 @@ function buildNav() {
     body.appendChild(nav);
 }
 
+function checkIslandHeights() {
+    // for each island, check if height is greater than window height and if so make it smaller
+
+    for (let island of document.getElementsByClassName("island")) {
+        if (island.offsetHeight > window.innerHeight) {
+            island.style.height = `${window.innerHeight - 20}px`;
+        }
+    }
+}
+
 function setupPage() {
     let pageContents = document.getElementById("page-contents");
     pageContents.style.display = "initial";
@@ -259,6 +269,8 @@ function setupPage() {
 
     placeIsland(nav);
     placeIsland(pageContents);
+
+    checkIslandHeights();
 }
 
 function hideInfo() {
