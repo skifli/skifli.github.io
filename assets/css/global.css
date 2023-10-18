@@ -47,7 +47,10 @@ p:last-child {
     backdrop-filter: blur(25px) saturate(180%);
     background-color: #F3F3F3;
     border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     position: absolute;
+    display: flex;
+    flex-direction: column;
 }
 
 .island .toolbar {
@@ -85,19 +88,28 @@ p:last-child {
     padding: 0px 18px;
 }
 
-.island .toolbar .action-buttons .icon#close {
+.island .toolbar .action-buttons .icon.close {
     border-top-right-radius: 8px;
 }
 
-.island .toolbar .action-buttons .icon#close:hover {
+.island .toolbar .action-buttons .icon.close:hover {
     background-color: #FC3131;
 }
 
 .island .toolbar .action-buttons .icon img {
+    pointer-events: none;
     width: 14px;
 }
 
+.island .body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: scroll;
+}
+
 .island .contents {
+    flex: 1;
     padding: 1rem;
 }
 
@@ -128,4 +140,53 @@ p:last-child {
 
 .island .footer button p {
     font-weight: 100;
+    text-align: center;
+}
+
+.island .resizers {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+}
+
+.island .resizers .resizer {
+    position: absolute;
+    pointer-events: auto;
+    width: 10px;
+    height: 10px;
+}
+
+.island .resizer.top-left {
+    left: 0px;
+    top: 0px;
+    cursor: nwse-resize;
+    /*resizer cursor*/
+}
+
+.island .resizer.top-right {
+    right: 0px;
+    top: 0px;
+    cursor: nesw-resize;
+}
+
+.island .resizer.bottom-left {
+    left: 0px;
+    bottom: 0px;
+    cursor: nesw-resize;
+}
+
+.island .resizer.bottom-right {
+    right: 0px;
+    bottom: 0px;
+    cursor: nwse-resize;
+}
+
+/* middle */
+
+.middle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }

@@ -13,12 +13,45 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-    <script src="assets/js/global.js"></script>
+    <script src="assets/js/global.js" type="module"></script>
 </head>
 
 <body>
-    <div class="island" style="width: 300px">
-        <div class="toolbar" onmousedown="moveIsland(event)">
+    <div id="js-required" class="island middle" style="width: 300px">
+        <div class='resizers'>
+            <div class='resizer top-left'></div>
+            <div class='resizer top-right'></div>
+            <div class='resizer bottom-left'></div>
+            <div class='resizer bottom-right'></div>
+        </div>
+        <div class="toolbar">
+            <div class="title">
+                <span class="material-symbols-outlined">
+                    error
+                </span>
+                <p>Error</p>
+            </div>
+            <div class="action-buttons">
+                <div class="icon close">
+                    <img src="assets/img/close.png" alt="Close" />
+                </div>
+            </div>
+        </div>
+        <div class="body">
+            <div class="contents">
+                <p>This website requires JavaScript to be enabled.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="island middle" style="width: 300px">
+        <div class='resizers'>
+            <div class='resizer top-left'></div>
+            <div class='resizer top-right'></div>
+            <div class='resizer bottom-left'></div>
+            <div class='resizer bottom-right'></div>
+        </div>
+        <div class="toolbar">
             <div class="title">
                 <span class="material-symbols-outlined">
                     info
@@ -26,26 +59,30 @@
                 <p>Info</p>
             </div>
             <div class="action-buttons">
-                <div class="icon" id="close">
+                <div class="icon close">
                     <img src="assets/img/close.png" alt="Close" />
                 </div>
             </div>
         </div>
-        <div class="contents">
-            <p>Welcome to my home on the web, where you can create, drag, and resize windows to your heart's content.
-                Now that I've told you the premise of this site, just click below to begin your journey.</p>
+        <div class="body">
+            <div class="contents">
+                <p>Welcome to my home on the web, where you can create, drag, and resize windows to your heart's
+                    content.
+                    Now that I've told you the premise of this site, just click below to begin your journey.</p>
 
-            <p>Oh and before you ask, I did make this myself. No fancy frameworks, just plain ol' HTML, CSS, and JS.
-                Enjoy your stay.</p>
+                <p>Oh and before you ask, I did make this myself. No fancy frameworks, just plain ol' HTML, CSS, and JS.
+                    Enjoy your stay.</p>
 
-            <p>Yours truly - © skifli 2023.</p>
-        </div>
-        <div class="footer">
-            <button>
-                <p>Ok, I understand</p>
-            </button>
+                <p>Yours truly - © skifli 2023.</p>
+            </div>
+            <div class="footer">
+                <button>
+                    <p>Ok, don't show again</p>
+                </button>
+            </div>
         </div>
     </div>
+
 </body>
 
 </html>
