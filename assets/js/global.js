@@ -236,6 +236,7 @@ function placeIsland(element) {
 
 function buildNav() {
     nav = document.createElement("nav");
+    nav.style.display = "none";
     createWindow(nav, 150, false, "menu", "Menu", false);
 
     let contents = nav.getElementsByClassName("body")[0].getElementsByClassName("contents")[0];
@@ -247,13 +248,14 @@ function buildNav() {
 
         contents.appendChild(navItem);
     }
+
+    body.appendChild(nav);
 }
 
 function setupPage() {
-    body.appendChild(nav);
-
     let pageContents = document.getElementById("page-contents");
     pageContents.style.display = "initial";
+    nav.style.display = "initial";
 
     placeIsland(nav);
     placeIsland(pageContents);
