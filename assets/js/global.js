@@ -1,12 +1,13 @@
 import jsCookie from 'https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/+esm'
 
+const PARSER = new DOMParser();
 const pages = {
     "home": "",
-    "about": "about",
-    "projects": "projects",
-    "blog": "blog",
-    "photography": "photography",
-    "contact": "contact",
+    "about": "about/",
+    "projects": "projects/",
+    "blog": "blog/",
+    "photography": "photography/",
+    "contact": "contact/",
 };
 const RESIZERS_INNER_HTML = `<div class='resizer top-left'></div>
 <div class='resizer top-right'></div>
@@ -52,6 +53,7 @@ const TUTORIAL_ISLAND_HTML = `<div class='resizers'>
 let body = document.getElementsByTagName("body")[0];
 let nav = null;
 let islands = {};
+let windowOrder = [];
 
 function moveIsland(event) {
     event.preventDefault();
@@ -93,6 +95,14 @@ function moveIsland(event) {
     function stopIslandMove() {
         document.onmousemove = null;
         document.onmouseup = null;
+
+        for (let i = 0; i < Object.keys(islands).length; i++) {
+            if (islands[Object.keys(islands)[i]] == element) {
+                islands[Object.keys(islands)[i]] = element;
+                delete islands[Object.keys(islands)[i]];
+                break;
+            }
+        }
     }
 
     document.onmousemove = onIslandMove;
@@ -198,46 +208,60 @@ function moveMiddleDivsToCenter() {
     }
 }
 
+function giveLifeToIsland(island) {
+    let resizers = island.getElementsByClassName("resizers");
+    let resizer = null;
+    let islandToolbar = island.getElementsByClassName("toolbar")[0];
+    let actionButtons = islandToolbar.getElementsByClassName("action-buttons")[0];
+    let closeButton = actionButtons.getElementsByClassName("close")[0];
+
+    windowOrder.push(island);
+
+    island.onclick = function () {
+        windowOrder.splice(windowOrder.indexOf(island), 1);
+        windowOrder.push(island);
+
+        for (let i = 0; i < windowOrder.length; i++) {
+            windowOrder[i].style.zIndex = i;
+        }
+
+        console.log(windowOrder);
+    };
+
+    islandToolbar.onmousedown = function (event) { island.onclick(event); moveIsland(event); };
+    closeButton.onclick = function (event) {
+        island.remove();
+
+        for (let i = 0; i < Object.keys(islands).length; i++) {
+            if (islands[Object.keys(islands)[i]] == island) {
+                delete islands[Object.keys(islands)[i]];
+                break;
+            }
+        }
+    };
+
+    if (resizers.length == 0) {
+        resizers = document.createElement("div");
+        resizers.classList = "resizers";
+        resizers.innerHTML = RESIZERS_INNER_HTML;
+
+        island.prepend(resizers);
+    } else {
+        resizers = resizers[0];
+    }
+
+    for (resizer of resizers.getElementsByClassName("resizer")) {
+        resizer.addEventListener("mousedown", resizeIsland);
+    }
+}
+
 function giveLifeToIslands() {
     let islands = document.getElementsByClassName("island");
 
     for (let i = 0; i < islands.length; i++) {
         let island = islands[i];
 
-        let resizers = island.getElementsByClassName("resizers");
-        let resizer = null;
-        let islandToolbar = island.getElementsByClassName("toolbar")[0];
-        let actionButtons = islandToolbar.getElementsByClassName("action-buttons")[0];
-        let closeButton = actionButtons.getElementsByClassName("close")[0];
-
-        island.onclick = function (event) {
-            let islands = document.getElementsByClassName("island");
-
-            for (let i = 0; i < islands.length; i++) {
-                islands[i].style.zIndex = 0;
-            }
-
-            island.style.zIndex = 1;
-        };
-
-        islandToolbar.onmousedown = function (event) { island.onclick(event); moveIsland(event); };
-        closeButton.onclick = function (event) {
-            event.target.parentElement.parentElement.parentElement.remove();
-        };
-
-        if (resizers.length == 0) {
-            resizers = document.createElement("div");
-            resizers.classList = "resizers";
-            resizers.innerHTML = RESIZERS_INNER_HTML;
-
-            island.prepend(resizers);
-        } else {
-            resizers = resizers[0];
-        }
-
-        for (resizer of resizers.getElementsByClassName("resizer")) {
-            resizer.addEventListener("mousedown", resizeIsland);
-        }
+        giveLifeToIsland(island);
     }
 }
 
@@ -270,6 +294,18 @@ function createWindow(element, width, resizeable, icon, title, closeButton, cont
 </div>`;
 }
 
+function checkIslandHeight(island) {
+    if (island.offsetHeight > window.innerHeight) {
+        island.style.height = `${window.innerHeight - 20}px`;
+    }
+}
+
+function checkIslandHeights() {
+    for (let island of document.getElementsByClassName("island")) {
+        checkIslandHeight(island);
+    }
+}
+
 function placeIsland(element) {
     if (Object.keys(islands).length == 0) {
         element.style.left = "10px";
@@ -277,27 +313,41 @@ function placeIsland(element) {
 
         islands[10] = element;
     } else {
-        let furthestX = parseInt(Object.keys(islands).reduce((a, b) => obj[a] > obj[b] ? a : b));
+        let furthestX = parseInt(Object.keys(islands).reduce((a, b) => a > b ? a : b));
         let newX = furthestX + islands[furthestX].offsetWidth + 10;
 
         element.style.left = `${newX}px`;
         element.style.top = "10px";
+
+        islands[newX] = element;
     }
 }
 
-function openNewPage(event) {
+async function openNewPage(event) {
     event.preventDefault();
 
-    console.log(1);
+    let newPage = `${event.target.href}index.html`;
 
-    let newPage = event.target.href;
+    let pageHTML = await fetch(newPage).then(response => response.text());
+    let page = PARSER.parseFromString(pageHTML, "text/html");
+    let pageContent = page.getElementsByClassName("page-content")[0];
+
+    pageContent.style.display = "initial";
+
+    body.appendChild(pageContent);
+
+    placeIsland(pageContent);
+    giveLifeToIsland(pageContent);
+    checkIslandHeight(pageContent);
 }
 
 function buildNav() {
     nav = document.createElement("nav");
     nav.style.display = "none";
 
-    let html = ``;
+    createWindow(nav, 150, false, "menu", "Menu", false, "");
+
+    let navContents = nav.getElementsByClassName("contents")[0];
 
     for (let page in pages) {
         let navItem = document.createElement("div");
@@ -310,28 +360,19 @@ function buildNav() {
         link.onclick = openNewPage;
 
         navItem.appendChild(link);
-        html += navItem.outerHTML;
+        navContents.appendChild(navItem);
     }
 
-    createWindow(nav, 150, false, "menu", "Menu", false, html);
     body.appendChild(nav);
 }
 
-function checkIslandHeights() {
-    for (let island of document.getElementsByClassName("island")) {
-        if (island.offsetHeight > window.innerHeight) {
-            island.style.height = `${window.innerHeight - 20}px`;
-        }
-    }
-}
-
 function setupPage() {
-    let pageContents = document.getElementById("page-contents");
-    pageContents.style.display = "initial";
+    let pageContent = document.getElementsByClassName("page-content")[0];
+    pageContent.style.display = "initial";
     nav.style.display = "initial";
 
     placeIsland(nav);
-    placeIsland(pageContents);
+    placeIsland(pageContent);
 
     checkIslandHeights();
 }
