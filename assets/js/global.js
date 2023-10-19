@@ -8,6 +8,46 @@ const pages = {
     "photography": "photography",
     "contact": "contact",
 };
+const RESIZERS_INNER_HTML = `<div class='resizer top-left'></div>
+<div class='resizer top-right'></div>
+<div class='resizer bottom-left'></div>
+<div class='resizer bottom-right'></div>`;
+const TUTORIAL_ISLAND_HTML = `<div class='resizers'>
+    <div class='resizer top-left'></div>
+    <div class='resizer top-right'></div>
+    <div class='resizer bottom-left'></div>
+    <div class='resizer bottom-right'></div>
+    </div>
+    <div class="toolbar">
+    <div class="title">
+        <span class="material-symbols-outlined">
+            info
+        </span>
+        <p>Info</p>
+    </div>
+    <div class="action-buttons">
+        <div class="icon close">
+            <img src="assets/img/close.png" alt="Close" />
+        </div>
+    </div>
+    </div>
+    <div class="body">
+    <div class="contents">
+        <p>Welcome to my home on the web, where you can create, drag, and resize windows to your heart's
+            content.
+            Now that I've told you the premise of this site, just click below to begin your journey.</p>
+
+        <p>Oh and before you ask, I did make this myself. No fancy frameworks, just plain ol' HTML, CSS, and JS.
+            Enjoy your stay.</p>
+
+        <p>Yours truly - © skifli 2023.</p>
+    </div>
+    <div class="footer">
+        <button>
+            <p>Ok, don't show again</p>
+        </button>
+    </div>
+</div>`;
 
 let body = document.getElementsByTagName("body")[0];
 let nav = null;
@@ -164,7 +204,7 @@ function giveLifeToIslands() {
     for (let i = 0; i < islands.length; i++) {
         let island = islands[i];
 
-        let resizers = island.getElementsByClassName("resizers")[0];
+        let resizers = island.getElementsByClassName("resizers");
         let resizer = null;
         let islandToolbar = island.getElementsByClassName("toolbar")[0];
         let actionButtons = islandToolbar.getElementsByClassName("action-buttons")[0];
@@ -185,13 +225,23 @@ function giveLifeToIslands() {
             event.target.parentElement.parentElement.parentElement.remove();
         };
 
+        if (resizers.length == 0) {
+            resizers = document.createElement("div");
+            resizers.classList = "resizers";
+            resizers.innerHTML = RESIZERS_INNER_HTML;
+
+            island.prepend(resizers);
+        } else {
+            resizers = resizers[0];
+        }
+
         for (resizer of resizers.getElementsByClassName("resizer")) {
             resizer.addEventListener("mousedown", resizeIsland);
         }
     }
 }
 
-function createWindow(element, width, resizeable, icon, title, closeButton) {
+function createWindow(element, width, resizeable, icon, title, closeButton, contents) {
     element.classList.add("island");
     element.style.width = `${width}px`;
     element.innerHTML = `<div class='resizers ${resizeable ? "" : "unresizable"}'>
@@ -215,6 +265,7 @@ function createWindow(element, width, resizeable, icon, title, closeButton) {
 </div>
 <div class="body">
     <div class="contents">
+    ${contents}
     </div>
 </div>`;
 }
@@ -234,27 +285,39 @@ function placeIsland(element) {
     }
 }
 
+function openNewPage(event) {
+    event.preventDefault();
+
+    console.log(1);
+
+    let newPage = event.target.href;
+}
+
 function buildNav() {
     nav = document.createElement("nav");
     nav.style.display = "none";
-    createWindow(nav, 150, false, "menu", "Menu", false);
 
-    let contents = nav.getElementsByClassName("body")[0].getElementsByClassName("contents")[0];
+    let html = ``;
 
     for (let page in pages) {
         let navItem = document.createElement("div");
         navItem.classList = "nav-item";
-        navItem.innerHTML = `<a href="${body.dataset.homeurl}${pages[page]}" id="${page == body.dataset.page ? "current" : ""}">${page}</a>`;
 
-        contents.appendChild(navItem);
+        let link = document.createElement("a");
+        link.href = `${body.dataset.homeurl}${pages[page]}`;
+        link.id = page == body.dataset.page ? "current" : "";
+        link.innerHTML = page;
+        link.onclick = openNewPage;
+
+        navItem.appendChild(link);
+        html += navItem.outerHTML;
     }
 
+    createWindow(nav, 150, false, "menu", "Menu", false, html);
     body.appendChild(nav);
 }
 
 function checkIslandHeights() {
-    // for each island, check if height is greater than window height and if so make it smaller
-
     for (let island of document.getElementsByClassName("island")) {
         if (island.offsetHeight > window.innerHeight) {
             island.style.height = `${window.innerHeight - 20}px`;
@@ -277,56 +340,21 @@ function hideInfo() {
     let infoIsland = document.getElementById("info-island");
 
     infoIsland.remove();
-    jsCookie.set("tutorialSeen", "true", { expires: 7 });
+    jsCookie.set("notFirstLoad", "true", { expires: 365 });
 
     setupPage();
 }
 
-function checkForInfo() {
-    const tutorialSeen = jsCookie.get("tutorialSeen");
+function checkIfFirstLoad() {
+    const notFirstLoad = jsCookie.get("notFirstLoad");
 
-    if (tutorialSeen != "true") {
+    if (notFirstLoad != "true") {
         let tutorialIsland = document.createElement("div");
         tutorialIsland.classList = "island middle";
         tutorialIsland.id = "info-island";
         tutorialIsland.style.width = "300px";
 
-        tutorialIsland.innerHTML = `<div class='resizers'>
-        <div class='resizer top-left'></div>
-        <div class='resizer top-right'></div>
-        <div class='resizer bottom-left'></div>
-        <div class='resizer bottom-right'></div>
-    </div>
-    <div class="toolbar">
-        <div class="title">
-            <span class="material-symbols-outlined">
-                info
-            </span>
-            <p>Info</p>
-        </div>
-        <div class="action-buttons">
-            <div class="icon close">
-                <img src="assets/img/close.png" alt="Close" />
-            </div>
-        </div>
-    </div>
-    <div class="body">
-        <div class="contents">
-            <p>Welcome to my home on the web, where you can create, drag, and resize windows to your heart's
-                content.
-                Now that I've told you the premise of this site, just click below to begin your journey.</p>
-
-            <p>Oh and before you ask, I did make this myself. No fancy frameworks, just plain ol' HTML, CSS, and JS.
-                Enjoy your stay.</p>
-
-            <p>Yours truly - © skifli 2023.</p>
-        </div>
-        <div class="footer">
-            <button>
-                <p>Ok, don't show again</p>
-            </button>
-        </div>
-    </div>`;
+        tutorialIsland.innerHTML = TUTORIAL_ISLAND_HTML;
 
         tutorialIsland.getElementsByClassName("footer")[0].getElementsByTagName("button")[0].onclick = hideInfo;
 
@@ -339,8 +367,8 @@ function checkForInfo() {
 window.addEventListener("load", function () {
     this.document.getElementById("js-required").remove();
 
-    buildNav(); // has to be done before checkForInfo()
-    checkForInfo();
+    buildNav(); // has to be done before checkIfFirstLoad()
+    checkIfFirstLoad();
 
     giveLifeToIslands();
     moveMiddleDivsToCenter();
