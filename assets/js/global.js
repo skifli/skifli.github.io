@@ -316,6 +316,10 @@ function placeIsland(element) {
         let furthestX = parseInt(Object.keys(islands).reduce((a, b) => a > b ? a : b));
         let newX = furthestX + islands[furthestX].offsetWidth + 10;
 
+        if (newX + element.offsetWidth > window.innerWidth) {
+            newX = window.innerWidth - element.offsetWidth - 10;
+        }
+
         element.style.left = `${newX}px`;
         element.style.top = "10px";
 
@@ -339,6 +343,8 @@ async function openNewPage(event) {
     placeIsland(pageContent);
     giveLifeToIsland(pageContent);
     checkIslandHeight(pageContent);
+
+    pageContent.click(); // trigger bring to top
 }
 
 function buildNav() {
