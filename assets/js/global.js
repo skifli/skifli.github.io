@@ -224,8 +224,6 @@ function giveLifeToIsland(island) {
         for (let i = 0; i < windowOrder.length; i++) {
             windowOrder[i].style.zIndex = i;
         }
-
-        console.log(windowOrder);
     };
 
     islandToolbar.onmousedown = function (event) { island.onclick(event); moveIsland(event); };
