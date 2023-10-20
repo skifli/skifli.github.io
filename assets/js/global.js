@@ -245,6 +245,8 @@ function giveLifeToIsland(island) {
             if (island.dataset.url != undefined) {
                 window.history.pushState({}, island.dataset.title, island.dataset.url);
 
+                console.log(island.dataset.url);
+
                 document.url = island.dataset.url;
                 body.dataset.homeurl = island.dataset.homeurl;
             }
@@ -378,7 +380,7 @@ async function openNewPage(event) {
     pageContent.dataset.url = newPage;
     pageContent.dataset.homeurl = page.querySelector("body").dataset.homeurl;
 
-    body.appendChild(pageContent);
+    body.prepend(pageContent);
 
     placeIsland(pageContent);
     giveLifeToIsland(pageContent);
@@ -419,12 +421,10 @@ function setupPage() {
 
     pageContent.dataset.title = head.querySelector("title").innerHTML;
     pageContent.dataset.url = document.url;
+    pageContent.dataset.homeurl = body.dataset.homeurl;
 
     pageContent.style.display = "initial";
     nav.style.display = "initial";
-
-    pageContent.dataset.url = document.url;
-    pageContent.dataset.homeurl = body.dataset.homeurl;
 
     placeIsland(nav);
     placeIsland(pageContent);
@@ -463,6 +463,8 @@ function checkIfFirstLoad() {
 window.addEventListener("load", function () {
     if (!this.window.location.href.endsWith("index.html")) {
         document.url = `${window.location.href}${window.location.href.endsWith("/") ? "" : "/"}index.html`;
+    } else {
+        document.url = window.location.href;
     }
 
     this.document.getElementById("js-required").remove();
