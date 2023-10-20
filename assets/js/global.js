@@ -2,12 +2,12 @@ import jsCookie from 'https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/+esm'
 
 const PARSER = new DOMParser();
 const pages = {
-    "home": "",
-    "about": "about/",
-    "projects": "projects/",
-    "blog": "blog/",
-    "photography": "photography/",
-    "contact": "contact/",
+    "home": "index.html",
+    "about": "about/index.html",
+    "projects": "projects/index.html",
+    "blog": "blog/index.html",
+    "photography": "photography/index.html",
+    "contact": "contact/index.html",
 };
 const RESIZERS_INNER_HTML = `<div class='resizer top-left'></div>
 <div class='resizer top-right'></div>
@@ -50,7 +50,9 @@ const TUTORIAL_ISLAND_HTML = `<div class='resizers'>
     </div>
 </div>`;
 
+let head = document.getElementsByTagName("head")[0];
 let body = document.getElementsByTagName("body")[0];
+let originalPageContent = document.getElementsByClassName("page-content")[0];
 let nav = null;
 let islands = {};
 let windowOrder = [];
@@ -224,10 +226,34 @@ function giveLifeToIsland(island) {
         for (let i = 0; i < windowOrder.length; i++) {
             windowOrder[i].style.zIndex = i;
         }
+
+        let navItem = null;
+
+        for (navItem of nav.getElementsByClassName("nav-item")) {
+            let navItemA = navItem.getElementsByTagName("a")[0];
+
+            if (navItemA.innerHTML == island.dataset.page) {
+                navItemA.id = "current";
+            } else {
+                navItemA.id = "";
+            }
+        }
+
+        if (document.title != island.dataset.title) {
+            document.title = island.dataset.title;
+
+            if (island.dataset.url != undefined) {
+                window.history.pushState({}, island.dataset.title, island.dataset.url);
+
+                document.url = island.dataset.url;
+                body.dataset.homeurl = island.dataset.homeurl;
+            }
+        }
     };
 
     islandToolbar.onmousedown = function (event) { island.onclick(event); moveIsland(event); };
     closeButton.onclick = function (event) {
+        event.stopPropagation(); // prevent navbar updating to bring to front
         island.remove();
 
         for (let i = 0; i < Object.keys(islands).length; i++) {
@@ -236,6 +262,18 @@ function giveLifeToIsland(island) {
                 break;
             }
         }
+
+        let navItem = null;
+
+        for (navItem of nav.getElementsByClassName("nav-item")) {
+            let navItemA = navItem.getElementsByTagName("a")[0];
+
+            if (navItemA.innerHTML == island.dataset.page) {
+                navItemA.id = "";
+            }
+        }
+
+        windowOrder.splice(windowOrder.indexOf(island), 1);
     };
 
     if (resizers.length == 0) {
@@ -328,13 +366,17 @@ function placeIsland(element) {
 async function openNewPage(event) {
     event.preventDefault();
 
-    let newPage = `${event.target.href}index.html`;
+    let newPage = `${body.dataset.homeurl}${pages[event.target.innerHTML]}`;
 
     let pageHTML = await fetch(newPage).then(response => response.text());
     let page = PARSER.parseFromString(pageHTML, "text/html");
     let pageContent = page.getElementsByClassName("page-content")[0];
+    let newTitle = page.querySelector("title").innerHTML;
 
     pageContent.style.display = "initial";
+    pageContent.dataset.title = newTitle;
+    pageContent.dataset.url = newPage;
+    pageContent.dataset.homeurl = page.querySelector("body").dataset.homeurl;
 
     body.appendChild(pageContent);
 
@@ -359,7 +401,7 @@ function buildNav() {
 
         let link = document.createElement("a");
         link.href = `${body.dataset.homeurl}${pages[page]}`;
-        link.id = page == body.dataset.page ? "current" : "";
+        link.id = page == originalPageContent.dataset.page ? "current" : "";
         link.innerHTML = page;
         link.onclick = openNewPage;
 
@@ -367,13 +409,22 @@ function buildNav() {
         navContents.appendChild(navItem);
     }
 
+    nav.dataset.title = "Menu";
+
     body.appendChild(nav);
 }
 
 function setupPage() {
     let pageContent = document.getElementsByClassName("page-content")[0];
+
+    pageContent.dataset.title = head.querySelector("title").innerHTML;
+    pageContent.dataset.url = window.location.href;
+
     pageContent.style.display = "initial";
     nav.style.display = "initial";
+
+    pageContent.dataset.url = window.location.href;
+    pageContent.dataset.homeurl = body.dataset.homeurl;
 
     placeIsland(nav);
     placeIsland(pageContent);
@@ -410,6 +461,10 @@ function checkIfFirstLoad() {
 }
 
 window.addEventListener("load", function () {
+    if (!window.location.href.endsWith("index.html")) {
+        window.location.href = `${window.location.href}${window.location.href.endsWith("/") ? "" : "/"}index.html`;
+    }
+
     this.document.getElementById("js-required").remove();
 
     buildNav(); // has to be done before checkIfFirstLoad()
