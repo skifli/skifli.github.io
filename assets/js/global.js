@@ -245,8 +245,6 @@ function giveLifeToIsland(island) {
             if (island.dataset.url != undefined) {
                 window.history.pushState({}, island.dataset.title, island.dataset.url);
 
-                console.log(island.dataset.url);
-
                 document.url = island.dataset.url;
                 body.dataset.homeurl = island.dataset.homeurl;
             }
