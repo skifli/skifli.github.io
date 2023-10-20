@@ -119,10 +119,6 @@ a:hover {
     width: 14px;
 }
 
-.island .toolbar .action-buttons .icon.close img {
-    content: url("../img/close.png");
-}
-
 .island .body {
     display: flex;
     flex-direction: column;

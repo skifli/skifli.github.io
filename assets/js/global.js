@@ -289,6 +289,9 @@ function giveLifeToIsland(island) {
     for (resizer of resizers.getElementsByClassName("resizer")) {
         resizer.addEventListener("mousedown", resizeIsland);
     }
+
+    let closeButtonImg = closeButton.getElementsByTagName("img")[0];
+    closeButtonImg.src = `${body.dataset.homeurl}/assets/img/close.png`;
 }
 
 function giveLifeToIslands() {
