@@ -418,12 +418,12 @@ function setupPage() {
     let pageContent = document.getElementsByClassName("page-content")[0];
 
     pageContent.dataset.title = head.querySelector("title").innerHTML;
-    pageContent.dataset.url = window.location.href;
+    pageContent.dataset.url = document.url;
 
     pageContent.style.display = "initial";
     nav.style.display = "initial";
 
-    pageContent.dataset.url = window.location.href;
+    pageContent.dataset.url = document.url;
     pageContent.dataset.homeurl = body.dataset.homeurl;
 
     placeIsland(nav);
@@ -461,8 +461,8 @@ function checkIfFirstLoad() {
 }
 
 window.addEventListener("load", function () {
-    if (!window.location.href.endsWith("index.html")) {
-        window.location.href = `${window.location.href}${window.location.href.endsWith("/") ? "" : "/"}index.html`;
+    if (!this.window.location.href.endsWith("index.html")) {
+        document.url = `${window.location.href}${window.location.href.endsWith("/") ? "" : "/"}index.html`;
     }
 
     this.document.getElementById("js-required").remove();
