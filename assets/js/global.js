@@ -294,6 +294,24 @@ function giveLifeToIsland(island) {
     closeButtonImg.src = `${body.dataset.homeurl}/assets/img/close.png`;
 }
 
+function onBlogWindowResize(island) {
+    if (island.offsetWidth < 400) {
+        island.getElementsByTagName("ul")[0].classList.add("mobile");
+    } else {
+        island.getElementsByTagName("ul")[0].classList.remove("mobile");
+    }
+}
+
+function addBlogResizeListener(island) {
+    if (island.classList.contains("blog-window")) {
+        if (island.dataset.resizer == undefined) {
+            new ResizeObserver(function () {
+                onBlogWindowResize(island);
+            }).observe(island);
+        }
+    }
+}
+
 function giveLifeToIslands() {
     let islands = document.getElementsByClassName("island");
 
@@ -301,6 +319,7 @@ function giveLifeToIslands() {
         let island = islands[i];
 
         giveLifeToIsland(island);
+        addBlogResizeListener(island);
     }
 }
 
@@ -366,6 +385,16 @@ function placeIsland(element) {
     }
 }
 
+function executeScriptsInIsland(island) {
+    const scripts = island.querySelectorAll("script");
+
+    scripts.forEach(script => {
+        const scriptNode = document.createElement("script");
+        scriptNode.text = script.innerHTML;
+        script.parentNode.replaceChild(scriptNode, script);
+    })
+}
+
 async function openNewPage(event) {
     event.preventDefault();
 
@@ -386,6 +415,8 @@ async function openNewPage(event) {
     placeIsland(pageContent);
     giveLifeToIsland(pageContent);
     checkIslandHeight(pageContent);
+
+    executeScriptsInIsland(pageContent);
 
     pageContent.click(); // trigger bring to top
 }

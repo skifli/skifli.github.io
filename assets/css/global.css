@@ -232,3 +232,22 @@ a:hover {
 .nav-item a:hover {
     color: var(--accent-colour);
 }
+
+/* blog */
+
+ul#blogs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul#blogs li p {
+    color: var(--text-color-muted);
+    margin-bottom: 0px;
+    float: right;
+    font-weight: 500;
+}
+
+ul#blogs.mobile li p {
+    float: initial;
+}
