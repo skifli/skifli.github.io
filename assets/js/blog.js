@@ -1,3 +1,5 @@
+import { openNewPage } from "./global.js";
+
 const parser = new DOMParser();
 
 async function parseBlogs() {
@@ -24,7 +26,7 @@ async function parseBlogs() {
     return items;
 }
 
-async function displayBlogs(n) {
+export async function displayBlogs(n) {
     let rssBlogs = await parseBlogs();
 
     rssBlogs = rssBlogs.slice(0, n == 0 ? rssBlogs.length : n);
@@ -40,6 +42,9 @@ async function displayBlogs(n) {
 
         blogTitle.innerHTML = blog.title;
         blogTitle.href = blog.link;
+        blogTitle.onclick = function (event) {
+            openNewPage(event, (new URL(blogTitle.href)).pathname);
+        }
 
         blogPubDate.innerHTML = blog.pubDate;
 

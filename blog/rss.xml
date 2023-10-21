@@ -16,11 +16,5 @@
 			<link>https://skifli.github.io/blog/2023/pyattr-in-depth-explanation.html</link>
 			<pubDate>Wed, 30 Aug 2023</pubDate>
 		</item>
-		<item>
-			<title>Website Rewrite</title>
-			<description>New website design!</description>
-			<link>https://skifli.github.io/blog/2023/website-rewrite.html</link>
-			<pubDate>Mon, 21 Aug 2023</pubDate>
-		</item>
 	</channel>
 </rss>

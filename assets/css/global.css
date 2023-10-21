@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css");
 
 /* global */
 
@@ -48,6 +49,10 @@ p {
 
 p:last-child {
     margin-bottom: 0px;
+}
+
+b {
+    font-weight: 600;
 }
 
 a {
@@ -250,4 +255,23 @@ ul#blogs li p {
 
 ul#blogs.mobile li p {
     float: initial;
+}
+
+ul#toc {
+    list-style: none;
+}
+
+ul#toc a {
+    font-size: 0.85rem;
+    font-weight: 300;
+}
+
+pre code,
+details,
+ul#toc {
+    margin-bottom: 10px
+}
+
+ul ul {
+    margin-left: 20px
 }

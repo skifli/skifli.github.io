@@ -390,15 +390,27 @@ function executeScriptsInIsland(island) {
 
     scripts.forEach(script => {
         const scriptNode = document.createElement("script");
-        scriptNode.text = script.innerHTML;
-        script.parentNode.replaceChild(scriptNode, script);
+
+        if (script.innerHTML != "") {
+            scriptNode.text = script.innerHTML;
+        }
+
+        if (script.type != "") {
+            scriptNode.type = script.type;
+        }
+
+        if (script.src != "") {
+            scriptNode.src = script.src;
+        }
+
+        body.appendChild(scriptNode);
     })
 }
 
-async function openNewPage(event) {
+export async function openNewPage(event, url) {
     event.preventDefault();
 
-    let newPage = `${body.dataset.homeurl}${pages[event.target.innerHTML]}`;
+    let newPage = `${body.dataset.homeurl}${url == undefined ? pages[event.target.innerHTML] : url}`;
 
     let pageHTML = await fetch(newPage).then(response => response.text());
     let page = PARSER.parseFromString(pageHTML, "text/html");
@@ -416,9 +428,9 @@ async function openNewPage(event) {
     giveLifeToIsland(pageContent);
     checkIslandHeight(pageContent);
 
-    executeScriptsInIsland(pageContent);
-
     pageContent.click(); // trigger bring to top
+
+    executeScriptsInIsland(pageContent);
 }
 
 function buildNav() {
