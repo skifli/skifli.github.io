@@ -1,4 +1,4 @@
-import {openNewPage} from "./global.js";
+import { openNewPage } from "./global.js";
 
 const parser = new DOMParser();
 
@@ -16,10 +16,10 @@ async function parseBlogs() {
     let pubDate = item.querySelector("pubDate").innerHTML;
 
     items.push({
-      title : title,
-      link : link,
-      description : description,
-      pubDate : pubDate,
+      title: title,
+      link: link,
+      description: description,
+      pubDate: pubDate,
     });
   });
 
@@ -42,11 +42,11 @@ export async function displayBlogs(n) {
 
     blogTitle.innerHTML = blog.title;
     blogTitle.href = blog.link;
-    blogTitle.onclick =
-        function(
-            event) { openNewPage(event, (new URL(blogTitle.href)).pathname); }
+    blogTitle.onclick = function (event) {
+      openNewPage(event, new URL(blogTitle.href).pathname);
+    };
 
-        blogPubDate.innerHTML = blog.pubDate;
+    blogPubDate.innerHTML = blog.pubDate;
 
     blogElement.appendChild(blogTitle);
     blogElement.appendChild(blogPubDate);

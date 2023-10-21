@@ -1,13 +1,13 @@
-import jsCookie from 'https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/+esm'
+import jsCookie from "https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/+esm";
 
 const PARSER = new DOMParser();
 const pages = {
-  "home" : "index.html",
-  "about" : "about/index.html",
-  "projects" : "projects/index.html",
-  "blog" : "blog/index.html",
-  "photography" : "photography/index.html",
-  "contact" : "contact/index.html",
+  home: "index.html",
+  about: "about/index.html",
+  projects: "projects/index.html",
+  blog: "blog/index.html",
+  photography: "photography/index.html",
+  contact: "contact/index.html",
 };
 const RESIZERS_INNER_HTML = `<div class='resizer top-left'></div>
 <div class='resizer top-right'></div>
@@ -60,7 +60,10 @@ let windowOrder = [];
 function moveIsland(event) {
   event.preventDefault();
 
-  let pos1 = event.clientX, pos2 = event.clientY, pos3 = 0, pos4 = 0;
+  let pos1 = event.clientX,
+    pos2 = event.clientY,
+    pos3 = 0,
+    pos4 = 0;
   let element = event.target.parentElement;
 
   function onIslandMove(event) {
@@ -118,82 +121,86 @@ function resizeIsland(event) {
   const minimum_size = 150;
 
   let element = event.target.parentElement.parentElement;
-  let original_width = parseFloat(getComputedStyle(element, null)
-                                      .getPropertyValue('width')
-                                      .replace('px', ''));
-  let original_height = parseFloat(getComputedStyle(element, null)
-                                       .getPropertyValue('height')
-                                       .replace('px', ''));
+  let original_width = parseFloat(
+    getComputedStyle(element, null).getPropertyValue("width").replace("px", ""),
+  );
+  let original_height = parseFloat(
+    getComputedStyle(element, null)
+      .getPropertyValue("height")
+      .replace("px", ""),
+  );
   let original_x = element.getBoundingClientRect().left;
   let original_y = element.getBoundingClientRect().top;
   let original_mouse_x = event.pageX;
   let original_mouse_y = event.pageY;
 
   function resize(event) {
-    if (currentResizer.classList.contains('bottom-right')) {
+    if (currentResizer.classList.contains("bottom-right")) {
       const width = original_width + (event.pageX - original_mouse_x);
-      const height = original_height + (event.pageY - original_mouse_y)
+      const height = original_height + (event.pageY - original_mouse_y);
 
       if (width > minimum_size) {
-        element.style.width = width + 'px'
+        element.style.width = width + "px";
       }
 
       if (height > minimum_size) {
-        element.style.height = height + 'px'
+        element.style.height = height + "px";
       }
-    } else if (currentResizer.classList.contains('bottom-left')) {
-      const height = original_height + (event.pageY - original_mouse_y)
-      const width = original_width - (event.pageX - original_mouse_x)
+    } else if (currentResizer.classList.contains("bottom-left")) {
+      const height = original_height + (event.pageY - original_mouse_y);
+      const width = original_width - (event.pageX - original_mouse_x);
 
       if (height > minimum_size) {
-        element.style.height = height + 'px'
+        element.style.height = height + "px";
       }
 
       if (width > minimum_size) {
-        element.style.width = width + 'px'
+        element.style.width = width + "px";
         element.style.left =
-            original_x + (event.pageX - original_mouse_x) + 'px'
+          original_x + (event.pageX - original_mouse_x) + "px";
       }
-    } else if (currentResizer.classList.contains('top-right')) {
-      const width = original_width + (event.pageX - original_mouse_x)
-      const height = original_height - (event.pageY - original_mouse_y)
+    } else if (currentResizer.classList.contains("top-right")) {
+      const width = original_width + (event.pageX - original_mouse_x);
+      const height = original_height - (event.pageY - original_mouse_y);
 
       if (width > minimum_size) {
-        element.style.width = width + 'px'
+        element.style.width = width + "px";
       }
 
       if (height > minimum_size) {
-        element.style.height = height + 'px'
-        element.style.top = original_y + (event.pageY - original_mouse_y) + 'px'
+        element.style.height = height + "px";
+        element.style.top =
+          original_y + (event.pageY - original_mouse_y) + "px";
       }
     } else {
-      const width = original_width - (event.pageX - original_mouse_x)
-      const height = original_height - (event.pageY - original_mouse_y)
+      const width = original_width - (event.pageX - original_mouse_x);
+      const height = original_height - (event.pageY - original_mouse_y);
 
       if (width > minimum_size) {
-        element.style.width = width + 'px'
+        element.style.width = width + "px";
         element.style.left =
-            original_x + (event.pageX - original_mouse_x) + 'px'
+          original_x + (event.pageX - original_mouse_x) + "px";
       }
 
       if (height > minimum_size) {
-        element.style.height = height + 'px'
-        element.style.top = original_y + (event.pageY - original_mouse_y) + 'px'
+        element.style.height = height + "px";
+        element.style.top =
+          original_y + (event.pageY - original_mouse_y) + "px";
       }
     }
   }
 
-  function stopResize() { window.removeEventListener('mousemove', resize); }
+  function stopResize() {
+    window.removeEventListener("mousemove", resize);
+  }
 
-  window.addEventListener('mousemove', resize)
-  window.addEventListener('mouseup', stopResize)
+  window.addEventListener("mousemove", resize);
+  window.addEventListener("mouseup", stopResize);
 }
 
 function middleize(element) {
-  element.style.top =
-      (window.innerHeight / 2) - (element.offsetHeight / 2) + "px";
-  element.style.left =
-      (window.innerWidth / 2) - (element.offsetWidth / 2) + "px";
+  element.style.top = window.innerHeight / 2 - element.offsetHeight / 2 + "px";
+  element.style.left = window.innerWidth / 2 - element.offsetWidth / 2 + "px";
 }
 
 function moveMiddleDivsToCenter() {
@@ -222,7 +229,7 @@ function giveLifeToIsland(island) {
 
   windowOrder.push(island);
 
-  island.onclick = function() {
+  island.onclick = function () {
     windowOrder.splice(windowOrder.indexOf(island), 1);
     windowOrder.push(island);
 
@@ -254,11 +261,11 @@ function giveLifeToIsland(island) {
     }
   };
 
-  islandToolbar.onmousedown = function(event) {
+  islandToolbar.onmousedown = function (event) {
     island.onclick(event);
     moveIsland(event);
   };
-  closeButton.onclick = function(event) {
+  closeButton.onclick = function (event) {
     event.stopPropagation(); // prevent navbar updating to bring to front
     island.remove();
 
@@ -311,8 +318,9 @@ function onBlogWindowResize(island) {
 function addBlogResizeListener(island) {
   if (island.classList.contains("blog-window")) {
     if (island.dataset.resizer == undefined) {
-      new ResizeObserver(function() { onBlogWindowResize(island); })
-          .observe(island);
+      new ResizeObserver(function () {
+        onBlogWindowResize(island);
+      }).observe(island);
     }
   }
 }
@@ -328,8 +336,15 @@ function giveLifeToIslands() {
   }
 }
 
-function createWindow(element, width, resizeable, icon, title, closeButton,
-                      contents) {
+function createWindow(
+  element,
+  width,
+  resizeable,
+  icon,
+  title,
+  closeButton,
+  contents,
+) {
   element.classList.add("island");
   element.style.width = `${width}px`;
   element.innerHTML = `<div class='resizers ${resizeable ? "" : "unresizable"}'>
@@ -347,7 +362,8 @@ function createWindow(element, width, resizeable, icon, title, closeButton,
     </div>
     <div class="action-buttons">
         <div class="icon close" style="display: ${
-      closeButton ? "initial" : "none"};">
+          closeButton ? "initial" : "none"
+        };">
             <img src="assets/img/close.png" alt="Close" />
         </div>
     </div>
@@ -378,8 +394,9 @@ function placeIsland(element) {
 
     islands[10] = element;
   } else {
-    let furthestX =
-        parseInt(Object.keys(islands).reduce((a, b) => a > b ? a : b));
+    let furthestX = parseInt(
+      Object.keys(islands).reduce((a, b) => (a > b ? a : b)),
+    );
     let newX = furthestX + islands[furthestX].offsetWidth + 10;
 
     if (newX + element.offsetWidth > window.innerWidth) {
@@ -396,7 +413,7 @@ function placeIsland(element) {
 function executeScriptsInIsland(island) {
   const scripts = island.querySelectorAll("script");
 
-  scripts.forEach(script => {
+  scripts.forEach((script) => {
     const scriptNode = document.createElement("script");
 
     if (script.innerHTML != "") {
@@ -412,16 +429,17 @@ function executeScriptsInIsland(island) {
     }
 
     body.appendChild(scriptNode);
-  })
+  });
 }
 
 export async function openNewPage(event, url) {
   event.preventDefault();
 
   let newPage = `${body.dataset.homeurl}${
-      url == undefined ? pages[event.target.innerHTML] : url}`;
+    url == undefined ? pages[event.target.innerHTML] : url
+  }`;
 
-  let pageHTML = await fetch(newPage).then(response => response.text());
+  let pageHTML = await fetch(newPage).then((response) => response.text());
   let page = PARSER.parseFromString(pageHTML, "text/html");
   let pageContent = page.getElementsByClassName("page-content")[0];
   let newTitle = page.querySelector("title").innerHTML;
@@ -489,7 +507,7 @@ function hideInfo() {
   let infoIsland = document.getElementById("info-island");
 
   infoIsland.remove();
-  jsCookie.set("notFirstLoad", "true", {expires : 365});
+  jsCookie.set("notFirstLoad", "true", { expires: 365 });
 
   setupPage();
 }
@@ -505,9 +523,9 @@ function checkIfFirstLoad() {
 
     tutorialIsland.innerHTML = TUTORIAL_ISLAND_HTML;
 
-    tutorialIsland.getElementsByClassName("footer")[0]
-        .getElementsByTagName("button")[0]
-        .onclick = hideInfo;
+    tutorialIsland
+      .getElementsByClassName("footer")[0]
+      .getElementsByTagName("button")[0].onclick = hideInfo;
 
     body.appendChild(tutorialIsland);
   } else {
@@ -515,10 +533,11 @@ function checkIfFirstLoad() {
   }
 }
 
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
   if (!this.window.location.href.endsWith("index.html")) {
     document.url = `${window.location.href}${
-        window.location.href.endsWith("/") ? "" : "/"}index.html`;
+      window.location.href.endsWith("/") ? "" : "/"
+    }index.html`;
   } else {
     document.url = window.location.href;
   }
