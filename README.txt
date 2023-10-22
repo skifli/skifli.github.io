@@ -1,1 +1,0 @@
-This is the repository where the code for my portfolio website is held. You can view the website here: https://skifli.pages.dev
