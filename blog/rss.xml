@@ -5,10 +5,10 @@
 		<link>https://skifli.github.io/blog</link>
 		<description>My Blog</description>
 		<item>
-			<title>Anki Decks</title>
-			<description>An in-depth explanation and look at the inner workings of pyattr.</description>
-			<link>https://skifli.github.io/blog/2023/anki-decks.html</link>
-			<pubDate>Sat, 23 Sep 2023</pubDate>
+			<title>Website Rewrite 2</title>
+			<description>The sequel is here!</description>
+			<link>https://skifli.github.io/blog/2023/website-rewrite-two.html</link>
+			<pubDate>Sun, 22 Oct 2023</pubDate>
 		</item>
 		<item>
 			<title>Pyattr in-depth explanation</title>

@@ -7,8 +7,13 @@ const pages = {
     "projects": "projects/index.html",
     "blog": "blog/index.html",
     "photography": "photography/index.html",
-    "contact": "contact/index.html",
 };
+const navSocialLinks = {
+    "codeforum (skifli)": "https://codeforum.org/members/skifli.1181/",
+    "github (skifli)": "https://github.com/skifli",
+    "spotify": "https://open.spotify.com/user/316tjwsnuhdcxtqerxuwxbtdeek4",
+    "discord (@skifli)": "https://discord.com/users/1072069875993956372",
+}
 const RESIZERS_INNER_HTML = `<div class='resizer top-left'></div>
 <div class='resizer top-right'></div>
 <div class='resizer bottom-left'></div>
@@ -40,6 +45,8 @@ const TUTORIAL_ISLAND_HTML = `<div class='resizers'>
 
         <p>Oh and before you ask, I did make this myself. No fancy frameworks, just plain ol' HTML, CSS, and JS.
             Enjoy your stay.</p>
+
+        <p><b>PS:</b> This website uses <a href="https://www.cloudflare.com/en-gb/web-analytics/" target="_blank">Cloudflare Analytics</a> to track visits. There is no way to disable it because it is completely anonymised.</p>
 
         <p>Yours truly - © skifli 2023.</p>
     </div>
@@ -455,9 +462,51 @@ function buildNav() {
         navContents.appendChild(navItem);
     }
 
+    let hr = document.createElement("hr");
+    navContents.appendChild(hr);
+
+    for (let socialLink in navSocialLinks) {
+        let navItem = document.createElement("div");
+        navItem.classList = "nav-item";
+
+        let link = document.createElement("a");
+        link.href = navSocialLinks[socialLink];
+        link.target = "_blank";
+        link.innerHTML = socialLink;
+
+        navItem.appendChild(link);
+        navContents.appendChild(navItem);
+    }
+
     nav.dataset.title = "Menu";
 
     body.appendChild(nav);
+}
+
+function checkForScrollToElement() {
+    if (window.location.hash != "") {
+        let element = document.getElementById(window.location.hash.replace("#", ""));
+
+        if (element != null) {
+            element.scrollIntoView();
+        }
+    }
+}
+
+function checkForToc() {
+    let toc = document.getElementById("toc");
+
+    if (toc != undefined) {
+        let li = null;
+
+        for (li of toc.getElementsByTagName("li")) {
+            let a = li.getElementsByTagName("a")[0];
+
+            a.onclick = function () {
+                checkForScrollToElement();
+            };
+        }
+    }
 }
 
 function setupPage() {
@@ -474,6 +523,9 @@ function setupPage() {
     placeIsland(pageContent);
 
     checkIslandHeights();
+
+    checkForToc();
+    checkForScrollToElement();
 }
 
 function hideInfo() {

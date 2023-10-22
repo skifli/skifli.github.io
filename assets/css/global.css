@@ -238,6 +238,11 @@ a:hover {
     color: var(--accent-colour);
 }
 
+nav hr {
+    border: 1px solid var(--text-color-muted);
+    margin: 5px 0px;
+}
+
 /* blog */
 
 ul#blogs {

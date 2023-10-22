@@ -54,6 +54,8 @@
         </div>
         <div class="body">
             <div class="contents">
+                <p><b>Description</b>: <i>An in-depth explanation and look at the inner workings of pyattr.</i></p>
+
                 <h2>Table of Contents</h2>
 
                 <ul id="toc">
@@ -61,7 +63,7 @@
                     <li><a href="#how-does-pyattr-work">How does Pyattr work</a></li>
                 </ul>
 
-                <h2>Introduction</h2>
+                <h2 id="introduction">Introduction</h2>
 
                 <p>Many object-oriented programming languages (such as C++) have access modifiers for classes. Their
                     function is
@@ -138,7 +140,7 @@ print(example.__name)     # AttributeError - 'Example' object has no attribute '
                     attribute of
                     the class. To prevent meddling of the <i>`__dict__`</i> variable, <b>pyattr</b> uses a custom
                     dictionary
-                    implementation that has the <i>set</i> amd <i>get</i> method overrides baked in.</p>
+                    implementation that has the <i>set</i> and <i>get</i> method overrides baked in.</p>
 
                 <p><b>pyattr</b> also works with functions. This is due to the fact that the functions in a class are
                     also
