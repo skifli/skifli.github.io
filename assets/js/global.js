@@ -10,9 +10,9 @@ const pages = {
 };
 const navSocialLinks = {
     "codeforum (skifli)": "https://codeforum.org/members/skifli.1181/",
+    "discord (@skifli)": "https://discord.com/users/1072069875993956372",
     "github (skifli)": "https://github.com/skifli",
     "spotify": "https://open.spotify.com/user/316tjwsnuhdcxtqerxuwxbtdeek4",
-    "discord (@skifli)": "https://discord.com/users/1072069875993956372",
 }
 const RESIZERS_INNER_HTML = `<div class='resizer top-left'></div>
 <div class='resizer top-right'></div>
