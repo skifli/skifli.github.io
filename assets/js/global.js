@@ -13,6 +13,7 @@ const navSocialLinks = {
     "discord (@skifli)": "https://discord.com/users/1072069875993956372",
     "github (skifli)": "https://github.com/skifli",
     "spotify": "https://open.spotify.com/user/316tjwsnuhdcxtqerxuwxbtdeek4",
+    "wakatime (@skifli)": "https://wakatime.com/@skifli"
 }
 const RESIZERS_INNER_HTML = `<div class='resizer top-left'></div>
 <div class='resizer top-right'></div>
@@ -444,7 +445,7 @@ function buildNav() {
     nav = document.createElement("nav");
     nav.style.display = "none";
 
-    createWindow(nav, 150, false, "menu", "Menu", false, "");
+    createWindow(nav, 155, false, "menu", "Menu", false, "");
 
     let navContents = nav.getElementsByClassName("contents")[0];
 
