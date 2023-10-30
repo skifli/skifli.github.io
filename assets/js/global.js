@@ -61,6 +61,7 @@ const TUTORIAL_ISLAND_HTML = `<div class='resizers'>
 let head = document.getElementsByTagName("head")[0];
 let body = document.getElementsByTagName("body")[0];
 let originalPageContent = document.getElementsByClassName("page-content")[0];
+let mobile = false;
 let nav = null;
 let islands = {};
 let windowOrder = [];
@@ -373,23 +374,46 @@ function checkIslandHeights() {
 }
 
 function placeIsland(element) {
-    if (Object.keys(islands).length == 0) {
-        element.style.left = "10px";
-        element.style.top = "10px";
+    if (mobile) {
+        element.style.width = `${window.outerWidth - 20}px`;
 
-        islands[10] = element;
-    } else {
-        let furthestX = parseInt(Object.keys(islands).reduce((a, b) => a > b ? a : b));
-        let newX = furthestX + islands[furthestX].offsetWidth + 10;
+        if (Object.keys(islands).length == 0) {
+            element.style.top = "10px";
+            element.style.left = "10px";
 
-        if (newX + element.offsetWidth > window.innerWidth) {
-            newX = window.innerWidth - element.offsetWidth - 10;
+            islands[10] = element;
+        } else {
+            let furthestY = parseInt(Object.keys(islands).reduce((a, b) => a > b ? a : b));
+            let newY = furthestY + islands[furthestY].offsetHeight + 10;
+
+            if (newY + element.offsetHeight > window.innerHeight) {
+                element.style.height = `${window.innerHeight - newY - 10}px`;
+            }
+
+            element.style.top = `${newY}px`;
+            element.style.left = "10px";
+
+            islands[newY] = element;
         }
+    } else {
+        if (Object.keys(islands).length == 0) {
+            element.style.left = "10px";
+            element.style.top = "10px";
 
-        element.style.left = `${newX}px`;
-        element.style.top = "10px";
+            islands[10] = element;
+        } else {
+            let furthestX = parseInt(Object.keys(islands).reduce((a, b) => a > b ? a : b));
+            let newX = furthestX + islands[furthestX].offsetWidth + 10;
 
-        islands[newX] = element;
+            if (newX + element.offsetWidth > window.innerWidth) {
+                newX = window.innerWidth - element.offsetWidth - 10;
+            }
+
+            element.style.left = `${newX}px`;
+            element.style.top = "10px";
+
+            islands[newX] = element;
+        }
     }
 }
 
@@ -419,6 +443,10 @@ export async function openNewPage(event, url) {
     event.preventDefault();
 
     let newPage = `${body.dataset.homeurl}${url == undefined ? pages[event.target.innerHTML] : url}`;
+
+    if (mobile) {
+        window.location = newPage;
+    }
 
     let pageHTML = await fetch(newPage).then(response => response.text());
     let page = PARSER.parseFromString(pageHTML, "text/html");
@@ -565,6 +593,10 @@ window.addEventListener("load", function () {
     }
 
     this.document.getElementById("js-required").remove();
+
+    if (window.outerWidth <= 800) {
+        mobile = true;
+    }
 
     buildNav(); // has to be done before checkIfFirstLoad()
     checkIfFirstLoad();

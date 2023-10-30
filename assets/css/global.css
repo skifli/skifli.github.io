@@ -239,7 +239,7 @@ a:hover {
 }
 
 nav hr {
-    border: 1px solid var(--text-color-muted);
+    border: 1px solid var(--text-colour);
     margin: 5px 0px;
 }
 

@@ -28,4 +28,4 @@ This is where the code for my portfolio website is held. It functions akin to an
 
 ### Features
 
-- [ ] Add a mechanism that tracks page chanes, and so if a 404 does happen then the log can be shown to the user to help me debug what happened.
+- [ ] Add a mechanism that tracks page changes, and so if a 404 does happen then the log can be shown to the user to help me debug what happened.
