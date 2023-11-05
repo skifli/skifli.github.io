@@ -10,107 +10,158 @@
     <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/121291719" />
 
     <link href="../assets/css/global.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-    <script src="../assets/js/global.js" defer></script>
+    <script src="../assets/js/global.js" type="module"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
 </head>
 
-<body>
-    <nav class="island">
-        <a id="title">skifli</a>
+<body data-homeurl="../">
+    <div id="js-required" class="island middle" style="width: 300px">
+        <div class="toolbar">
+            <div class="title">
+                <span class="material-symbols-outlined">
+                    error
+                </span>
+                <p>Error</p>
+            </div>
+            <div class="action-buttons">
+                <div class="icon close">
+                    <img alt="Close" />
+                </div>
+            </div>
+        </div>
+        <div class="body">
+            <div class="contents">
+                <p>This website requires JavaScript to be enabled.</p>
+            </div>
+        </div>
+    </div>
+    <div class="island page-content" style="width: 500px; display: none;" data-page="about">
+        <div class="toolbar">
+            <div class="title">
+                <span class="material-symbols-outlined">
+                    person
+                </span>
+                <p>About</p>
+            </div>
+            <div class="action-buttons">
+                <div class="icon close">
+                    <img alt="Close" />
+                </div>
+            </div>
+        </div>
+        <div class="body">
+            <div class="contents">
+                <p>
+                    Hi there, thanks for being here.
+                </p>
 
-        <ul>
-            <li><a href="../" onclick="changePage(event);">home</a></li>
-            <li><a href="" onclick="changePage(event);" id="current">about</a></li>
-            <li><a href="../projects/" onclick="changePage(event);">projects</a></li>
-            <li><a href="../blog/" onclick="changePage(event);">blog</a></li>
-            <li><a href="../photography/" onclick="changePage(event);">photography</a></li>
-            <li><a href="../contact/" onclick="changePage(event);">contact</a></li>
-        </ul>
-    </nav>
+                <h2>Technology & Software Development</h2>
 
-    <div id="body" class="island">
-        <h1>About</h1>
+                <p>
+                    I've always been interested in technology since a young age. I started programming when I was around
+                    11
+                    years old, and I've been doing it ever since. I've worked with many different languages and
+                    frameworks, but
+                    by far my favourites are C / Go. I also code in LLVM IR, C++, Python, HTML, CSS, and JS. I've also
+                    dabbled
+                    in
+                    some frameworks such as Astro, Next.js, and React. If you asked me a few years ago Python would have
+                    been my
+                    favourite (as it was basically the only language I knew back then), but I've come to love other
+                    programming
+                    languages since.
+                </p>
 
-        <p>
-            Hi there, thanks for being here. I'm Skifli, a full-stack developer from the UK.
-        </p>
+                <h2>Hardware</h2>
 
-        <h2>Technology & Software Development</h2>
+                <p>
+                    I have a <a
+                        href="https://www.serversdirect.co.uk/p/1456339/lenovo-v530-15icr-core-i5-9400-8gb-1tb-hdd-windows-10-pro-desktop-pc"
+                        target="_blank">Lenovo V530-15ICR</a> desktop. It is pretty good, except for gaming since it has
+                    our
+                    beloved Intel Integrated Graphics. I did upgrade it to 16GB of RAM though, if that means anything at
+                    all.
+                    The 1TB HDD is nice, except for the fact that I barely use 100GB, and so I might have been better of
+                    with
+                    the 256GB SSD version.
+                </p>
 
-        <p>
-            I've always been interested in technology since a young age. I started programming when I was around 11
-            years old, and I've been doing it ever since. I've worked with many different languages and frameworks, but
-            by far my favourites are C / Go. I also code in LLVM IR, C++, Python, HTML, CSS, and JS. I've also dabbled
-            in
-            some frameworks such as Astro, Next.js, and React. If you asked me a few years ago Python would have been my
-            favourite (as it was basically the only language I knew back then), but I've come to love other programming
-            languages since.
-        </p>
+                <p>
+                    Paired with that, I have an <a
+                        href="https://www.acer.com/gb-en/monitors/gaming/nitro-kg1/pdp/UM.UX1EE.001"
+                        target="_blank">Acer KG241Q</a> monitor, which is ok for my activities but apparently isn't the
+                    best.
+                    I run it at 60Hz because it keeps overheating at 75Hz, which is amazing! I also have a UGEE screen
+                    with pen input, but I don't use the pen part as much as I should. I can't find what the model number
+                    is, but it is quite a bit smaller than my main monitor. It's still better than just one though.
+                </p>
 
-        <h2>Hardware</h2>
+                <p>
+                    I have a <a href="https://www.oneplus.com/uk/n100" target="_blank">One Plus Nord N100</a>, which
+                    isn't that
+                    great. However I got it for £100 new which was a steal, so if you take that into account it is
+                    amazing for
+                    the price. I got a 128GB Kingston SD Card for it, since the storage was too little for my needs.
+                </p>
 
-        <p>
-            I have a <a
-                href="https://www.serversdirect.co.uk/p/1456339/lenovo-v530-15icr-core-i5-9400-8gb-1tb-hdd-windows-10-pro-desktop-pc"
-                target="_blank">Lenovo V530-15ICR</a> desktop. It is pretty good, except for gaming since it has our
-            beloved Intel Integrated Graphics. I did upgrade it to 16GB of RAM though, if that means anything at all.
-            The 1TB HDD is nice, except for the fact that I barely use 100GB, and so I might have been better of with
-            the 256GB SSD.
-        </p>
+                <h2>F1 in Schools</h2>
 
-        <p>
-            Paired with that, I have an <a href="https://www.acer.com/gb-en/monitors/gaming/nitro-kg1/pdp/UM.UX1EE.001"
-                target="_blank">Acer KG241Q</a> monitor, which is ok for my activities but apparently isn't the best.
-            I run it at 60Hz because it keeps overheating at 75Hz, which is amazing!
-        </p>
+                <p>
+                    One of my favourite extra-curricular activities to do is F1 in Schools. I've been participating for
+                    a few
+                    years now, as part of <a href="https://warpf1s.github.io">team WARP</a>. I'm the sponsorship &
+                    marketing
+                    manager, and I also maintain our website. I find F1s really fun, and it has taught me valuable life
+                    skills.
+                </p>
 
-        <p>
-            I have a <a href="https://www.oneplus.com/uk/n100" target="_blank">One Plus Nord N100</a>, which isn't that
-            great. However I got it for £100 new which was a steal, so if you take that into account it is amazing for
-            the price. I got a 128GB Kingston SD Card for it, since the storage was too little for my needs.
-        </p>
+                <h2>Sports</h2>
 
-        <h2>F1 in Schools</h2>
+                <p>
+                    I'm an extremely sporty person, and I play Table Tennis competitively. I also play Badminton,
+                    however I've
+                    never entered a competition. I used to play Tennis and do Swimming, however I had to stop due to an
+                    injury.
+                    I also used to play Cricket, and it is still my favourite sport to watch.
+                </p>
 
-        <p>
-            One of my favourite extra-curricular activities to do is F1 in Schools. I've been participating for a few
-            years now, as part of <a href="https://warpf1s.github.io">team WARP</a>. I'm the sponsorship & marketing
-            manager, and I also maintain our website. I find F1s really fun, and it has taught me valuable life skills.
-        </p>
+                <h2>Music</h2>
 
-        <h2>Sports</h2>
+                <p>
+                    Some of my friends say I have questionable music taste, but I think it's pretty good. I listen to a
+                    lot of
+                    music, but my favourite artists are <a href="https://open.spotify.com/artist/5zixe6AbgXPqt4c1uSl94L"
+                        target="_blank">Connor Price</a>, <a
+                        href="https://open.spotify.com/artist/1Cd373x8qzC7SNUg5IToqp" target="_blank">BoyWithUke</a>,
+                    and <a href="https://open.spotify.com/artist/164Uj4eKjl6zTBKfJLFKKK" target="_blank">JVKE</a>. As of
+                    writing this, according to my <a href="https://stats.fm/skifli" target="_blank">Spotistats</a>, my
+                    most listened to genres are 'sad rap', 'pop', and 'pop rap'. Oh and
+                    also 'covertronica', whatever the heck that is.</p>
 
-        <p>
-            I'm an extremely sporty person, and I play Table Tennis competitively. I also play Badminton, however I've
-            never entered a competition. I used to play Tennis and do Swimming, however I had to stop due to an injury.
-            I also used to play Cricket, and it is still my favourite sport to watch.
-        </p>
+                <p>
+                    I also play the piano (grade 6), and trumpet (grade 2). I've been playing the piano for way too
+                    long, but I
+                    still enjoy it a lot. Speaking of which, I should probably be practising right now!
+                </p>
 
-        <h2>Music</h2>
+                <h2>Photography</h2>
 
-        <p>
-            Some of my friends say I have questionable music taste, but I think it's pretty good. I listen to a lot of
-            music, but my favourite artists are <a href="https://open.spotify.com/artist/5zixe6AbgXPqt4c1uSl94L"
-                target="_blank">Connor Price</a>, <a href="https://open.spotify.com/artist/1Cd373x8qzC7SNUg5IToqp"
-                target="_blank">BoyWithUke</a>, and <a href="https://open.spotify.com/artist/164Uj4eKjl6zTBKfJLFKKK"
-                target="_blank">JVKE</a>. As of writing this, according to my <a href="https://stats.fm/skifli"
-                target="_blank">Spotistats</a>, my most listened to genres are 'sad rap', 'pop', and 'pop rap'. Oh and
-            also 'covertronica', whatever the heck that is.</p>
-
-        <p>
-            I also play the piano (grade 6), and trumpet (grade 2). I've been playing the piano for way too long, but I
-            still enjoy it a lot. Speaking of which, I should probably be practising right now!
-        </p>
-
-        <h2>Photography</h2>
-
-        <p>I've always liked photography, even though I don't have the best hardware for the job. I have a <a
-                href="https://www.kodak.com/en/consumer/product/cameras/digital/az421" target="_blank">Kodak PixPro
-                AZ421</a> which is a pretty good camera for the price, but I'd like to upgrade to a DSLR at some point.
-            I also use my phone's camera, which isn't the best, but it's good enough for me. I use a third-party camera
-            app to take photos in RAW, which I then (sometimes) edit later. You can see my photos on the photography
-            page.
-        </p>
+                <p>I've always liked photography, even though I don't have the best hardware for the job. I have a <a
+                        href="https://www.kodak.com/en/consumer/product/cameras/digital/az421" target="_blank">Kodak
+                        PixPro
+                        AZ421</a> which is a pretty good camera for the price, but I'd like to upgrade to a DSLR at some
+                    point.
+                    I also use my phone's camera, which isn't the best, but it's good enough for me. I use a third-party
+                    camera
+                    app to take photos in RAW, which I then (sometimes) edit later. You can see my photos on the
+                    photography
+                    page.
+                </p>
+            </div>
+        </div>
     </div>
 </body>
 
