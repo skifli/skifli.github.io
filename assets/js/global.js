@@ -1,5 +1,27 @@
 import jsCookie from 'https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/+esm'
 
+/*\
+|*|
+|*|  :: translate relative paths to absolute paths ::
+|*|
+|*|  https://developer.mozilla.org/en-US/docs/Web/API/document.cookie
+|*|
+|*|  The following code is released under the GNU Public License, version 3 or later.
+|*|  http://www.gnu.org/licenses/gpl-3.0-standalone.html
+|*|
+\*/
+
+function relPathToAbs(sRelPath) {
+    var nUpLn, sDir = "", sPath = location.pathname.replace(/[^\/]*$/, sRelPath.replace(/(\/|^)(?:\.?\/+)+/g, "$1"));
+    for (var nEnd, nStart = 0; nEnd = sPath.indexOf("/../", nStart), nEnd > -1; nStart = nEnd + nUpLn) {
+        nUpLn = /^\/(?:\.\.\/)*/.exec(sPath.slice(nEnd))[0].length;
+        sDir = (sDir + sPath.substring(nStart, nEnd)).replace(new RegExp("(?:\\\/+[^\\\/]*){0," + ((nUpLn - 1) / 3) + "}$"), "/");
+    }
+    return sDir + sPath.substr(nStart);
+}
+
+/* End of code by Mozilla released under the GNU Public License, version 3 or later */
+
 const PARSER = new DOMParser();
 const pages = {
     "home": "index.html",
@@ -252,7 +274,7 @@ function giveLifeToIsland(island) {
             document.title = island.dataset.title;
 
             if (island.dataset.url != undefined) {
-                let newURL = window.location.href.replace(window.location.href.split('/').pop(), "");
+                let newURL = window.location.href.replace(`${window.location.href.split('/').pop()}/`, "");
                 newURL = new URL(island.dataset.url, newURL).href;
 
                 window.history.pushState({}, island.dataset.title, newURL);
@@ -458,8 +480,10 @@ export async function openNewPage(event, url) {
 
     pageContent.style.display = "initial";
     pageContent.dataset.title = newTitle;
-    pageContent.dataset.url = new URL(newPage, document.url).href;
+    pageContent.dataset.url = relPathToAbs(newPage);
     pageContent.dataset.homeurl = page.querySelector("body").dataset.homeurl;
+
+    console.log(pageContent.dataset.url);
 
     body.prepend(pageContent);
 
