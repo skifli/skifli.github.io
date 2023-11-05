@@ -43,7 +43,7 @@ export async function displayBlogs(n) {
         blogTitle.innerHTML = blog.title;
         blogTitle.href = blog.link;
         blogTitle.onclick = function (event) {
-            openNewPage(event, (new URL(blogTitle.href)).pathname);
+            openNewPage(event, (new URL(blogTitle.href)).pathname.substring(1));
         }
 
         blogPubDate.innerHTML = blog.pubDate;

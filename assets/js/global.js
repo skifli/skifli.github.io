@@ -252,9 +252,12 @@ function giveLifeToIsland(island) {
             document.title = island.dataset.title;
 
             if (island.dataset.url != undefined) {
-                window.history.pushState({}, island.dataset.title, island.dataset.url);
+                let newURL = window.location.href.replace(window.location.href.split('/').pop(), "");
+                newURL = new URL(island.dataset.url, newURL).href;
 
-                document.url = island.dataset.url;
+                window.history.pushState({}, island.dataset.title, newURL);
+                document.url = newURL;
+
                 body.dataset.homeurl = island.dataset.homeurl;
             }
         }
@@ -455,7 +458,7 @@ export async function openNewPage(event, url) {
 
     pageContent.style.display = "initial";
     pageContent.dataset.title = newTitle;
-    pageContent.dataset.url = newPage;
+    pageContent.dataset.url = new URL(newPage, document.url).href;
     pageContent.dataset.homeurl = page.querySelector("body").dataset.homeurl;
 
     body.prepend(pageContent);

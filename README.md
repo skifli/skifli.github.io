@@ -24,7 +24,7 @@ This is where the code for my portfolio website is held. It functions akin to an
 
 ### Requirements
 
-- [ ] Add mobile support.
+- [x] Add mobile support.
 
 ### Features
 
