@@ -34,6 +34,7 @@ const navSocialLinks = {
     "codeforum (skifli)": "https://codeforum.org/members/skifli.1181/",
     "discord (@skifli)": "https://discord.com/users/1072069875993956372",
     "github (skifli)": "https://github.com/skifli",
+    "mastodon.social (@skifli)": "https://mastodon.social/@skifli",
     "spotify": "https://open.spotify.com/user/316tjwsnuhdcxtqerxuwxbtdeek4",
     "wakatime (@skifli)": "https://wakatime.com/@skifli"
 }
@@ -78,6 +79,7 @@ const TUTORIAL_ISLAND_HTML = `<div class='resizers'>
             <p>Ok, don't show again</p>
         </button>
     </div>
+    <a rel="me" href="https://mastodon.social/@skifli">Mastodon</a>
 </div>`;
 
 let head = document.getElementsByTagName("head")[0];
