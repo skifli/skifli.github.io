@@ -502,7 +502,7 @@ function buildNav() {
     nav = document.createElement("nav");
     nav.style.display = "none";
 
-    createWindow(nav, 155, false, "menu", "Menu", false, "");
+    createWindow(nav, 200, false, "menu", "Menu", false, "");
 
     let navContents = nav.getElementsByClassName("contents")[0];
 
