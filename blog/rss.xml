@@ -5,6 +5,12 @@
 		<link>https://skifli.github.io/blog</link>
 		<description>My Blog</description>
 		<item>
+			<title>It's that time of the year again!</title>
+			<description>Advent of Code 2023 is here!</description>
+			<link>https://skifli.github.io/blog/2023/its-that-time-of-the-year-again.html</link>
+			<pubDate>Sat, 02 Dec 2023</pubDate>
+		</item>
+		<item>
 			<title>Website Rewrite (2)</title>
 			<description>The sequel is here!</description>
 			<link>https://skifli.github.io/blog/2023/website-rewrite-two.html</link>
