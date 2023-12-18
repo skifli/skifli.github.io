@@ -79,7 +79,6 @@ const TUTORIAL_ISLAND_HTML = `<div class='resizers'>
             <p>Ok, don't show again</p>
         </button>
     </div>
-    <a rel="me" href="https://mastodon.social/@skifli">Mastodon</a>
 </div>`;
 
 let head = document.getElementsByTagName("head")[0];
