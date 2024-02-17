@@ -72,7 +72,7 @@ const TUTORIAL_ISLAND_HTML = `<div class='resizers'>
 
         <p><b>PS:</b> This website uses <a href="https://www.cloudflare.com/en-gb/web-analytics/" target="_blank">Cloudflare Analytics</a> to track visits. There is no way to disable it because it is completely anonymised.</p>
 
-        <p>Yours truly - © skifli 2023.</p>
+        <p>Yours truly - © skifli 2024.</p>
     </div>
     <div class="footer">
         <button>
