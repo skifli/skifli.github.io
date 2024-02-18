@@ -2,7 +2,6 @@ import "https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js";
 import { ContentFilterBadWord } from "./profanity.js";
 
 let guestbook = document.getElementById('guestbook');
-let sign = document.getElementById('sign');
 
 let blocker = new ContentFilterBadWord();
 
@@ -15,6 +14,10 @@ export function addEntries() {
             guestbook.innerHTML = "";
 
             for (let index = 0; index < data.length; index++) {
+                if (Object.keys(data[index]).length === 0) {
+                    continue;
+                }
+
                 let li = document.createElement('li');
 
                 let pre = document.createElement('pre');
