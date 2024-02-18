@@ -11,6 +11,6 @@ gform.addEventListener('submit', function (event) {
         return;
     }
 
-    alert("Success! Redirecting to guestbook page...");
+    alert("Success! Give the server a few minutes to update the guestbook.");
     window.location.href = "../guestbook/";
 });
