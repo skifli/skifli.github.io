@@ -13,7 +13,7 @@ export function addEntries() {
         .then((data) => {
             guestbook.innerHTML = "";
 
-            for (let index = 0; index < data.length; index++) {
+            for (let index = data.length - 1; index >= 0; index--) {
                 if (Object.keys(data[index]).length === 0) {
                     continue;
                 }
