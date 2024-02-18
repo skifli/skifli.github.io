@@ -23,6 +23,10 @@ html {
 }
 
 body {
+    background-image: url("../img/cover.JPG");
+    background-size: cover;
+    background-position: center;
+
     display: inline-block;
 
     font-family: "Noto Sans", sans-serif;
