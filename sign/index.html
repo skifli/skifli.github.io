@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0" />
+
+    <title>Skifli | Sign</title>
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/121291719" />
+
+    <link href="../assets/css/global.css" rel="stylesheet" />
+    <link href="../assets/css/pages/sign.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <script src="../assets/js/global.js" type="module"></script>
+    <script src="../assets/js/pages/sign.js" defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script defer src="https://cloud.umami.is/script.js"
+        data-website-id="beb21c19-ba6a-4e39-b4bb-135582802958"></script>
+</head>
+
+<body data-homeurl="../">
+    <div id="js-required" class="island middle" style="width: 300px">
+        <div class="toolbar">
+            <div class="title">
+                <span class="material-symbols-outlined">
+                    error
+                </span>
+                <p>Error</p>
+            </div>
+            <div class="action-buttons">
+                <div class="icon close">
+                    <img alt="Close" />
+                </div>
+            </div>
+        </div>
+        <div class="body">
+            <div class="contents">
+                <p>This website requires JavaScript to be enabled.</p>
+            </div>
+        </div>
+    </div>
+    <div class="island page-content" style="width: 500px; display: none;" data-page="projects">
+        <div class="toolbar">
+            <div class="title">
+                <span class="material-symbols-outlined">
+                    draw
+                </span>
+                <p>Sign</p>
+            </div>
+            <div class="action-buttons">
+                <div class="icon close">
+                    <img alt="Close" />
+                </div>
+            </div>
+        </div>
+        <div class="body">
+            <div class="contents">
+                <p>
+                    Thank's for choosing to sign the guestbook! Please don't spam, and keep it clean :`).
+                </p>
+
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+                <form name="gform" id="gform" enctype="text/plain"
+                    action="https://docs.google.com/forms/d/e/1FAIpQLSevFqYf0PEjfYKABdJHHu2keXqfbn8M3vsDON9GC9ds0jphdg/formResponse?"
+                    onsubmit="submitted=true;" target="hidden_iframe">
+                    <label for="entry.520532958" class="aterisk_after">Name </label>
+
+                    <input class="form-element short" type="text" name="entry.520532958" id="entry.520532958"
+                        placeholder="User" required>
+
+                    <label for="entry.1271821898" class="max-length">Guestbook Entry</label>
+
+                    <textarea class="form-element" name="entry.1271821898" id="entry.1271821898" rows="5" cols="30"
+                        oninvalid="this.setCustomValidity('You must sign the guestbook.')"
+                        oninput="this.setCustomValidity('')" maxlength="50" placeholder="Enter Your Message Here"
+                        required></textarea>
+
+                    <label for="g-recaptcha" class="aterisk_after">Captcha</label>
+                    <div class="g-recaptcha" data-sitekey="6LdbUXcpAAAAANnPyPsMbmp1Nu0elBxg-7reE77A"></div>
+
+                    <div id="gform-submit">
+                        <input class="form-button" type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

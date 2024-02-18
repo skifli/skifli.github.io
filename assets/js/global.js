@@ -28,6 +28,7 @@ const pages = {
     "about": "about/index.html",
     "projects": "projects/index.html",
     "blog": "blog/index.html",
+    "guestbook": "guestbook/index.html",
     "photography": "photography/index.html",
 };
 const navSocialLinks = {
@@ -358,7 +359,7 @@ function giveLifeToIslands() {
     }
 }
 
-function createWindow(element, width, resizeable, icon, title, closeButton, contents) {
+export function createWindow(element, width, resizeable, icon, title, closeButton, contents) {
     element.classList.add("island");
     element.style.width = `${width}px`;
     element.innerHTML = `<div class='resizers ${resizeable ? "" : "unresizable"}'>
@@ -466,7 +467,9 @@ function executeScriptsInIsland(island) {
 }
 
 export async function openNewPage(event, url) {
-    event.preventDefault();
+    if (event != null) {
+        event.preventDefault();
+    }
 
     let newPage = `${body.dataset.homeurl}${url == undefined ? pages[event.target.innerHTML] : url}`;
 
@@ -483,8 +486,6 @@ export async function openNewPage(event, url) {
     pageContent.dataset.title = newTitle;
     pageContent.dataset.url = relPathToAbs(newPage);
     pageContent.dataset.homeurl = page.querySelector("body").dataset.homeurl;
-
-    console.log(pageContent.dataset.url);
 
     body.prepend(pageContent);
 
