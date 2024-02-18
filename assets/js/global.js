@@ -401,7 +401,7 @@ function checkIslandHeights() {
 
 function placeIsland(element) {
     if (mobile) {
-        element.style.width = `${window.outerWidth - 20}px`;
+        element.style.width = `${window.innerWidth - 20}px`;
 
         if (Object.keys(islands).length == 0) {
             element.style.top = "10px";
@@ -622,7 +622,7 @@ window.addEventListener("load", function () {
 
     this.document.getElementById("js-required").remove();
 
-    if (window.outerWidth <= 800) {
+    if (window.innerWidth <= 800) {
         mobile = true;
     }
 
