@@ -487,6 +487,9 @@ export async function openNewPage(event, url) {
     pageContent.dataset.url = relPathToAbs(newPage);
     pageContent.dataset.homeurl = page.querySelector("body").dataset.homeurl;
 
+    let pageHead = page.getElementsByTagName("head")[0];
+    head.appendChild(pageHead);
+
     body.prepend(pageContent);
 
     placeIsland(pageContent);

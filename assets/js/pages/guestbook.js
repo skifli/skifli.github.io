@@ -2,10 +2,11 @@ import "https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js";
 import { ContentFilterBadWord } from "./profanity.js";
 
 let guestbook = document.getElementById('guestbook');
+let sign = document.getElementById('sign');
 
 let blocker = new ContentFilterBadWord();
 
-window.addEventListener('load', function () {
+export function addEntries() {
     fetch(
         `https://opensheet.elk.sh/11QtCaoHT8sO6mpBkvhIAVC5uqwfQgNsljBxarirWYl8/Form+responses+1`
     )
@@ -29,4 +30,4 @@ window.addEventListener('load', function () {
                 guestbook.appendChild(li);
             }
         });
-});
+}
