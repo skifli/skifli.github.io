@@ -22,7 +22,7 @@ export function addEntries() {
 
                 let pre = document.createElement('pre');
                 pre.className = "entry-name-and-timestamp";
-                pre.innerText = DOMPurify.sanitize(`${blocker.cleanText(data[index].Name)} (${data[index].Timestamp})`);
+                pre.innerText = DOMPurify.sanitize(`${blocker.cleanText(data[index].Name)} - (${data[index].Timestamp})`);
 
                 let pre2 = document.createElement('pre');
                 pre2.className = "entry-message";

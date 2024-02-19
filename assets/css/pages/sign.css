@@ -4,13 +4,17 @@
 }
 
 #gform label {
+    margin: 7px 0px;
     font-size: 20px;
+}
+
+#gform label:first-child {
+    margin-top: 0px;
 }
 
 #gform input,
 #gform textarea {
     padding: 5px 10px;
-    margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
