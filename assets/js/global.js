@@ -32,7 +32,6 @@ const pages = {
     "photography": "photography/index.html",
 };
 const navSocialLinks = {
-    "codeforum (skifli)": "https://codeforum.org/members/skifli.1181/",
     "discord (@skifli)": "https://discord.com/users/1072069875993956372",
     "github (skifli)": "https://github.com/skifli",
     "mastodon.social (@skifli)": "https://mastodon.social/@skifli",
@@ -623,8 +622,6 @@ window.addEventListener("load", function () {
     } else {
         document.url = window.location.href;
     }
-
-    this.document.getElementById("js-required").remove();
 
     if (window.innerWidth <= 800) {
         mobile = true;
