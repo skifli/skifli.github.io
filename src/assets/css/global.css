@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+    --background-colour: #000000;
+    --text-colour: #FFFFFF;
+    --muted-text-colour: #AAAAAA;
+    --link-colour: #474BA5;
+
+    --column-width: 700px;
+}
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    overflow: hidden;
+}
+
+body {
+    display: inline-block;
+    width: 100vw;
+    height: 100vh;
+
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+
+    background-color: var(--background-colour);
+    color: var(--text-colour);
+
+    text-align: justify;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+p {
+    line-height: 1.5;
+}
+
+a {
+    color: var(--link-colour);
+
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration-color 0.25s;
+}
+
+a:hover {
+    text-decoration-color: var(--link-colour);
+}
+
+span.gradient-text {
+    background: linear-gradient(160deg, #CA4246, #9195ff);
+    background-clip: text;
+    color: transparent;
+}
+
+#hero {
+    background: linear-gradient(0deg, #000 0, #ffffff00), linear-gradient(90deg, #CA424633, #9195ff33);
+    padding: 100px 25px;
+}
+
+#hero>* {
+    text-align: center;
+}
+
+#hero p {
+    color: var(--muted-text-colour);
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+#hero #logos>* {
+    color: var(--text-colour);
+    font-size: 1.5rem;
+}
+
+#content {
+    padding: 0px 25px;
+    max-width: var(--column-width);
+
+    margin: 0 auto;
+}
+
+#content .section {
+    margin-bottom: 25px;
+}
