@@ -82,7 +82,7 @@ span.gradient-text {
 }
 
 #hero {
-    background: linear-gradient(0deg, #000 0, #ffffff00), linear-gradient(90deg, #CA424633, #9195ff33);
+    background: linear-gradient(0deg, #000000, #ffffff00), linear-gradient(90deg, #CA424633, #9195ff33);
     padding: 100px 25px;
 }
 
