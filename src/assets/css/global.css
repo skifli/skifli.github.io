@@ -17,10 +17,6 @@
     padding: 0px;
 }
 
-html {
-    overflow: hidden;
-}
-
 body {
     display: inline-block;
     width: 100vw;
