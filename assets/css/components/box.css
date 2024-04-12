@@ -1,0 +1,17 @@
+.box {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    padding: 20px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.box p {
+    margin-bottom: 10px;
+}
+
+.box .box-footer {
+    display: flex;
+    gap: 5px;
+}

@@ -1,0 +1,44 @@
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    flex-direction: row;
+}
+
+.button div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    gap: 5px;
+
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.button div:hover {
+    background-color: var(--background-colour);
+    color: var(--text-colour);
+}
+
+.button.inverse div {
+    background-color: var(--background-colour);
+    color: var(--text-colour);
+}
+
+.button.inverse div:hover {
+    background-color: initial;
+    color: var(--text-colour);
+}
+
+@media (max-width: 1000px) {
+    .buttons {
+        flex-direction: column;
+    }
+}

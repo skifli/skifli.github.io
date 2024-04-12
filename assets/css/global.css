@@ -37,29 +37,40 @@ body {
 
 h1 {
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.2;
     margin-bottom: 5px;
 }
 
 h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 16px;
-}
-
-h3 {
     font-size: 1.25rem;
     font-weight: 600;
     line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 10px;
 }
 
 p {
-    line-height: 1.5;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+i.bx {
+    font-size: 1.2rem;
 }
 
 a {
+    color: var(--text-colour);
+    text-decoration: none;
+}
+
+a:not(.custom) {
     color: var(--link-colour);
 
     text-decoration: underline;
@@ -67,7 +78,7 @@ a {
     transition: text-decoration-color 0.25s;
 }
 
-a:hover {
+a:not(.custom):hover {
     text-decoration-color: var(--link-colour);
 }
 
@@ -75,26 +86,8 @@ span.gradient-text {
     background: linear-gradient(160deg, #CA4246, #9195ff);
     background-clip: text;
     color: transparent;
-}
 
-#hero {
-    background: linear-gradient(0deg, #000000, #ffffff00), linear-gradient(90deg, #CA424633, #9195ff33);
-    padding: 100px 25px;
-}
-
-#hero>* {
-    text-align: center;
-}
-
-#hero p {
-    color: var(--muted-text-colour);
-    font-size: 1.25rem;
-    font-weight: 400;
-}
-
-#hero #logos>* {
-    color: var(--text-colour);
-    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 #content {

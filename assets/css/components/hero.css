@@ -1,0 +1,12 @@
+#hero {
+    min-height: 700px;
+    height: 100vh;
+    padding: 100px 25px;
+
+    background: linear-gradient(0deg, #000000, #ffffff00), linear-gradient(90deg, #CA424633, #9195ff33);
+}
+
+#hero #text {
+    text-align: center;
+    margin-bottom: 20px;
+}
