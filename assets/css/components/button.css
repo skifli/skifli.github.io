@@ -22,12 +22,11 @@
     transition: background-color 0.5s, color 0.5s;
 }
 
-.button div:hover {
+.button div:hover,
+.button.inverse div {
     background-color: var(--background-colour);
     color: var(--text-colour);
-}
 
-.button.inverse div {
     background-color: var(--background-colour);
     color: var(--text-colour);
 }
@@ -39,6 +38,6 @@
 
 @media (max-width: 1000px) {
     .buttons {
-        flex-direction: column;
+        flex-wrap: wrap;
     }
 }
