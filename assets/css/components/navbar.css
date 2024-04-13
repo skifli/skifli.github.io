@@ -27,16 +27,11 @@
     align-items: center;
     gap: 5px;
 
-    color: var(--text-colour);
     font-weight: 600;
 }
 
-#navbar #title a:hover {
-    text-decoration-color: transparent;
-}
-
 #navbar #title a img {
-    border-radius: 15%;
+    border-radius: 50%;
 }
 
 #navbar #links {
@@ -51,6 +46,7 @@
     transition: color 0.5s;
 }
 
+#navbar #links a#active,
 #navbar #links a:hover {
     color: var(--muted-text-colour);
 }

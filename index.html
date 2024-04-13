@@ -10,6 +10,8 @@
 
     <link href="assets/css/global.css" rel="stylesheet" />
     <link href="assets/css/components/hero-simple.css" rel="stylesheet" />
+    <link href="assets/css/components/box.css" rel="stylesheet" />
+    <link href="assets/css/components/blog.css" rel="stylesheet" />
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -17,6 +19,8 @@
 <body>
     <div id="hero-simple">
         <h1>Hello <span class="gradient-text">World</span></h1>
+        <div id="wcb" class="carbonbadge"></div>
+        <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer></script>
         <p>
             Welcome to my home on the internet &#x1F3F3;&#xFE0F;&#x200D;&#x1F308;
             &#x1F3F3;&#xFE0F;&#x200D;&#x26A7;&#xFE0F;
@@ -37,14 +41,6 @@
 
     <div id="content">
         <div class="section">
-            <h2>note &#128221;</h2>
-            <p>
-                Rome wasn't built in a day, and neither was this website. I'm still working on the re-write, but school
-                work is getting in the way &#128511;. Why don't ya come back soon though &#128516; - in the meantime
-                links are above &#9757;.
-            </p>
-        </div>
-        <div class="section">
             <h2>hiya &#128075;</h2>
             <p>
                 I'm Skifli, a full-stack developer, &#127955;player, &#127929;&#127930;enjoyer, and &#127911;addict. I
@@ -52,11 +48,63 @@
                 C, Go, and Rust - somehow 4 / 5 of the most popular programming languages according to <a
                     href="https://survey.stackoverflow.co/2023/#section-most-popular-technologies-programming-scripting-and-markup-languages"
                     target="_blank">Stack
-                    Overflow's 2023 Developer Survey</a> (I'm not sure how that happened either).
+                    Overflow's 2023 Developer Survey</a> (I'm not sure how that happened either &#128514;).
+            </p>
+            <br>
+            <p>
+                I also partake in the <a href="https://f1inschools.com" target="_blank">F1 in Schools</a> competition -
+                I'm our teams Sponsorship & Marketing Manager, and also maintain <a href="https://warp-racing.com"
+                    target="_blank">our website</a> (you should check it out, it's pretty cool &#128526;). In the 2023 -
+                24 we became the UK National Champions for Development class &#128293;. And yes, I do have an obsession
+                with emojis - my friends know me as the moyai (&#128511;) guy.
             </p>
         </div>
         <div class="section">
-
+            <h2>latest blog &#128221;</h2>
+            <p>
+                You can also view all of my <a href="./blog">blog posts</a>.
+            </p>
+            <div id="blogs">
+            </div>
+            <script type="module">
+                import { displayBlogs } from "./assets/js/blog.js";
+                displayBlogs(3);
+            </script>
+        </div>
+        <div class="section">
+            <h2>featured projects &#128187;</h2>
+            <p>
+                You can also view all of my projects on my <a href="https://github.com/skifli">GitHub</a>.
+            </p>
+            <div class="box">
+                <h3>the exeme language</h3>
+                <p>
+                    An optimised, elegant, and compiled programming language. Written in C,
+                    it's designed to be fast and efficient (with a focus on high quality code), have a simple but
+                    powerful syntax (with a focus on elegance), and to be portable (with a focus on cross-platform
+                    support).
+                </p>
+                <div class="box-footer">
+                    <a href="https://exeme-project.github.io/exeme-lang" target="_blank"><i class='bx bx-globe'
+                            style='color:#ffffff'></i></a>
+                    <a href="https://github.com/exeme-project/exeme-lang" target="_blank"><i class='bx bxl-github'
+                            style='color:#ffffff'></i></a>
+                </div>
+            </div>
+            <div class="box">
+                <h3>xyncer</h3>
+                <p>
+                    Allows application streaming between devices. Written in Rust, it was originally created with the
+                    intention of streaming Windows apps to a Linux machine, but is cross-platform and can be used for
+                    other purposes.
+                </p>
+                <div class="box-footer">
+                    <a href="https://exeme-project.github.io/xyncer"><i class='bx bx-globe'
+                            style='color:#ffffff'></i></a>
+                    <a href="https://github.com/exeme-project/xyncer" target="_blank"><i class='bx bxl-github'
+                            style='color:#ffffff'></i></a>
+                </div>
+            </div>
         </div>
     </div>
 </body>
