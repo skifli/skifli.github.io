@@ -1,6 +1,6 @@
 const parser = new DOMParser();
 
-async function parseBlogs(show_tags) {
+async function parseBlogs(show_tags, active_category) {
     let rss = await (await fetch("../../blog/rss.xml")).text();
     let rssParsed = parser.parseFromString(rss, "text/xml");
     let rssItems = rssParsed.querySelectorAll("item");
@@ -36,7 +36,7 @@ async function parseBlogs(show_tags) {
         let buttons = document.getElementById("blog-categories");
 
         all_categories.forEach((category, index) => {
-            buttons.innerHTML += `<a href="?category=${category}" class="custom button ${index % 2 == 0 ? "" : "inverse"}"><div><p>#${category}</p></div></a>`;
+            buttons.innerHTML += `<a href="?category=${category}" class="custom button ${category == active_category ? "inverse" : ""}"><div><p>#${category}</p></div></a>`;
         });
     }
 
@@ -52,7 +52,7 @@ export async function displayBlogs(n) {
         category = URL_PARAMS.get("category");
     }
 
-    let rssBlogs = await parseBlogs(n == undefined ? true : false);
+    let rssBlogs = await parseBlogs(n == undefined ? true : false, category);
 
     rssBlogs = rssBlogs.slice(0, n == undefined ? rssBlogs.length : n);
 

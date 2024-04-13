@@ -1,20 +1,25 @@
+#navbar-container {
+    /* place on top */
+    position: fixed;
+    top: 0;
+
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 0;
+
+    width: 100%;
+
+    z-index: 1000;
+    background: #0c0c0c;
+}
+
 #navbar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
-    /* place on top */
-    position: fixed;
-    top: 0;
-
-    padding: 10px 0;
-
-    /* place in center horizontally */
-    left: 50%;
-    transform: translateX(-50%);
-
-    width: 100%;
+    margin: 0 auto;
     max-width: var(--column-width);
 }
 
