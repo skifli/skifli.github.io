@@ -1,0 +1,17 @@
+#skills li {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#skills li p {
+    padding-right: 5px;
+}
+
+#skills li .logos {
+    flex-grow: 1;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
