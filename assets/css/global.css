@@ -110,3 +110,13 @@ span.gradient-text {
 pre code {
     margin: 10px 0px;
 }
+
+/* website carbon */
+
+#wcb.carbonbadge {
+    margin-bottom: 10px;
+}
+
+#wbc_2 {
+    color: var(--muted-text-colour);
+}
