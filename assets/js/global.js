@@ -28,15 +28,12 @@ const pages = {
     "about": "about/index.html",
     "projects": "projects/index.html",
     "blog": "blog/index.html",
-    "guestbook": "guestbook/index.html",
     "photography": "photography/index.html",
 };
 const navSocialLinks = {
     "discord (@skifli)": "https://discord.com/users/1072069875993956372",
     "github (skifli)": "https://github.com/skifli",
-    "mastodon.social (@skifli)": "https://mastodon.social/@skifli",
     "spotify": "https://open.spotify.com/user/316tjwsnuhdcxtqerxuwxbtdeek4",
-    "wakatime (@skifli)": "https://wakatime.com/@skifli"
 }
 const RESIZERS_INNER_HTML = `<div class='resizer top-left'></div>
 <div class='resizer top-right'></div>
@@ -70,7 +67,7 @@ const TUTORIAL_ISLAND_HTML = `<div class='resizers'>
         <p>Oh and before you ask, I did make this myself. No fancy frameworks, just plain ol' HTML, CSS, and JS.
             Enjoy your stay.</p>
 
-        <p><b>PS:</b> This website uses <a href="https://www.cloudflare.com/en-gb/web-analytics/" target="_blank">Cloudflare Analytics</a> to track visits. There is no way to disable it because it is completely anonymised.</p>
+        <p><b>PS:</b> This website uses <a href="https://umami.is/" target="_blank">Umami Analytics</a> to track visits. There is no way to disable it because it is completely anonymised.</p>
 
         <p>Yours truly - © skifli 2024.</p>
     </div>
