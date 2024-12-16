@@ -3,86 +3,80 @@
 <html lang="en-GB">
 
 <head>
-    <meta charset=UTF-8>
-    <meta name=viewport content="initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0" />
 
     <title>Skifli | Pyattr in-depth explanation</title>
-    <link rel="icon" href="https://avatars.githubusercontent.com/u/121291719" />
-
-    <script defer src="https://eu.umami.is/script.js" data-website-id="cc78779a-0731-4122-a445-358285f1e3fc"></script>
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/121291719" />
 
     <link href="../../assets/css/global.css" rel="stylesheet" />
-    <link href="../../assets/css/components/navbar.css" rel="stylesheet" />
-    <link href="../../assets/css/components/hero.css" rel="stylesheet" />
-    <link href="../../assets/css/components/button.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.css"
-        integrity="sha512-gf1wlpubdDw8bDUQwrSY57Ze+wqxHMy6eJha9fDfIc+3Yb2iUz6fZxXMAv7FwnS18/WEKo+huLUprRY/MqOU1g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
-        integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../../assets/js/global.js" type="module"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script defer src="https://cloud.umami.is/script.js"
+        data-website-id="cc78779a-0731-4122-a445-358285f1e3fc"></script>
 </head>
 
-<body>
-    <div id="navbar-container">
-        <div id="navbar">
-            <div id="title">
-                <a class="custom" href="../../">
-                    <img src="https://avatars.githubusercontent.com/u/121291719" alt="Skifli's PFP" height="20px"
-                        width="auto" />
-                    <p>skifli</p>
-                </a>
-            </div>
-            <div id="links">
-                <a class="custom" href="../../">
-                    <p>home</p>
-                </a>
-                <a class="custom" href="../">
-                    <p>blog</p>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div id="hero">
-        <div id="text">
-            <h1><span class="gradient-text">pyattr</span> in-depth explanation</h1>
-            <p>
-                An in-depth explanation and look at the inner workings of pyattr.
-            </p>
-            <p id="date">
-                Wednesday, 30 August 2023
-            </p>
-        </div>
-        <div class="buttons">
-            <a href="../?category=python" class="custom button">
-                <div>
-                    <p>#python</p>
+<body data-homeurl="../../">
+    <noscript>
+        <div id="js-required" class="island middle" style="width: 300px">
+            <div class="toolbar">
+                <div class="title">
+                    <span class="material-symbols-outlined">
+                        error
+                    </span>
+                    <p>Error</p>
                 </div>
-            </a>
-            <a href="../?category=2023" class="custom button inverse">
-                <div>
-                    <p>
-                        #2023
-                    </p>
+                <div class="action-buttons">
+                    <div class="icon close">
+                        <img alt="Close" />
+                    </div>
                 </div>
-            </a>
+            </div>
+            <div class="body">
+                <div class="contents">
+                    <p>This website requires JavaScript to be enabled.</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </noscript>
+    <div class="island page-content" style="width: 500px; display: none;" data-page="blog">
+        <div class="toolbar">
+            <div class="title">
+                <span class="material-symbols-outlined">
+                    edit
+                </span>
+                <p>2023 Blogs - Pyattr in-depth explanation</p>
+            </div>
+            <div class="action-buttons">
+                <div class="icon close">
+                    <img alt="Close" />
+                </div>
+            </div>
+        </div>
+        <div class="body">
+            <div class="contents">
+                <p><b>Description</b>: <i>An in-depth explanation and look at the inner workings of pyattr.</i></p>
 
-    <div id="content">
-        <div class="section">
-            <h2 id="introduction">Introduction</h2>
+                <h2>Table of Contents</h2>
 
-            <p>Many object-oriented programming languages (such as C++) have access modifiers for classes. Their
-                function is
-                to restrict access to variables and methods of the class. Python does have access modifiers, however
-                they
-                are not true to their name. Let's have a look at the example below:
-            </p>
+                <ul id="toc">
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#how-does-pyattr-work">How does Pyattr work</a></li>
+                </ul>
 
-            <pre><code>class Example:
+                <h2 id="introduction">Introduction</h2>
+
+                <p>Many object-oriented programming languages (such as C++) have access modifiers for classes. Their
+                    function is
+                    to restrict access to variables and methods of the class. Python does have access modifiers, however
+                    they
+                    are not true to their name. Let's have a look at the example below:
+                </p>
+
+                <pre><code>class Example:
     def __init__(self) -> None:
         self.__name = "pyattr"
 
@@ -94,71 +88,72 @@ example = Example()
 print(example.get_name()) # Output: `pyattr`.
 print(example.__name)     # AttributeError - 'Example' object has no attribute '__name'.</code></pre>
 
-            <p>If we run it, we get an `AttributeError`, telling us the variable does not exist. However, let's see
-                what
-                happens when we print the dictionary holding the variables in the class.</p>
+                <p>If we run it, we get an `AttributeError`, telling us the variable does not exist. However, let's see
+                    what
+                    happens when we print the dictionary holding the variables in the class.</p>
 
-            <pre><code>print(example.__dict__) # Output: `{'_Example__name': 'pyattr'}`.</code></pre>
+                <pre><code>print(example.__dict__) # Output: `{'_Example__name': 'pyattr'}`.</code></pre>
 
-            <p>We can see that the variable `__name` has actually just been renamed, in the format
-                `_{class_name}{var_name}`. So what happens if we try accessing `_Example__name` outside of the
-                class?</p>
+                <p>We can see that the variable `__name` has actually just been renamed, in the format
+                    `_{class_name}{var_name}`. So what happens if we try accessing `_Example__name` outside of the
+                    class?</p>
 
-            <pre><code>print(example._Example__name) # Output: `pyattr`.</code></pre>
+                <pre><code>print(example._Example__name) # Output: `pyattr`.</code></pre>
 
-            <p>We successfully accessed the <i>private</i> variables of the class, <i>outside</i> of the class! This
-                begs
-                the question, how could we implement proper access modifiers in Python? This is where my package <a
-                    href="https://pypi.org/project/pyattr" target="_blank"><b>pyattr</b></a> comes to the
-                rescue.</p>
+                <p>We successfully accessed the <i>private</i> variables of the class, <i>outside</i> of the class! This
+                    begs
+                    the question, how could we implement proper access modifiers in Python? This is where my package <a
+                        href="https://pypi.org/project/pyattr" target="_blank"><b>pyattr</b></a> comes to the
+                    rescue.</p>
 
-            <p>This blog is an explanation of how <b>pyattr</b> works. If you want the documentation on how to use
-                it,
-                you can find it <a href="https://github.com/skifli/pyattr#example" target="_blank">here</a>.
-            </p>
+                <p>This blog is an explanation of how <b>pyattr</b> works. If you want the documentation on how to use
+                    it,
+                    you can find it <a href="https://github.com/skifli/pyattr#example" target="_blank">here</a>.
+                </p>
 
-            <h2 id="how-does-pyattr-work">How does Pyattr work</h2>
+                <h2 id="how-does-pyattr-work">How does Pyattr work</h2>
 
-            <p><i>The rest of this article assumes you know how to integrate <b>pyattr</b> into your code. If you do
-                    not,
-                    I would suggest looking at the <a href="https://github.com/skifli/pyattr#example"
-                        target="_blank">example</a>.</i></p>
+                <p><i>The rest of this article assumes you know how to integrate <b>pyattr</b> into your code. If you do
+                        not,
+                        I would suggest looking at the <a href="https://github.com/skifli/pyattr#example"
+                            target="_blank">example</a>.</i></p>
 
-            <p>When you call the <i>__init__</i> function of <b>pyattr</b>, the package gets the object of the
-                caller class
-                to use later in the access modifier logic. It gets the object of the caller class via the stack.
-            </p>
+                <p>When you call the <i>__init__</i> function of <b>pyattr</b>, the package gets the object of the
+                    caller class
+                    to use later in the access modifier logic. It gets the object of the caller class via the stack.
+                </p>
 
-            <p>The <i>set</i> and <i>get</i> functions of the <b>pyattr</b> class are overriden, allowing
-                <b>pyattr</b>
-                to control the access of variables. Whenever a line of code tries to <i>set</i> or <i>get</i> a
-                variable
-                from the class, <b>pyattr</b> gets the caller class via the stack. If it is a protected attribute
-                <i>(`__`)</i>, and the caller class isn't the original class, an error is raised. If it is a private
-                attribute <i>(`_`)</i>, <b>pyattr</b> checks if the caller class is a subclass of the original
-                class. It
-                does this via the use of the <i>`__mro__`</i> variable of the caller class.
-            </p>
+                <p>The <i>set</i> and <i>get</i> functions of the <b>pyattr</b> class are overriden, allowing
+                    <b>pyattr</b>
+                    to control the access of variables. Whenever a line of code tries to <i>set</i> or <i>get</i> a
+                    variable
+                    from the class, <b>pyattr</b> gets the caller class via the stack. If it is a protected attribute
+                    <i>(`__`)</i>, and the caller class isn't the original class, an error is raised. If it is a private
+                    attribute <i>(`_`)</i>, <b>pyattr</b> checks if the caller class is a subclass of the original
+                    class. It
+                    does this via the use of the <i>`__mro__`</i> variable of the caller class.
+                </p>
 
-            <p>The <i>`__mro__`</i> attribute (<i>method resolution order</i>) contains the objects of the class(es)
-                that
-                the class inherits from. <b>pyattr</b> checks if the original class is in the <i>`__mro__`</i> list,
-                and if
-                it is not, <b>pyattr</b> raises an error.</p>
+                <p>The <i>`__mro__`</i> attribute (<i>method resolution order</i>) contains the objects of the class(es)
+                    that
+                    the class inherits from. <b>pyattr</b> checks if the original class is in the <i>`__mro__`</i> list,
+                    and if
+                    it is not, <b>pyattr</b> raises an error.</p>
 
-            <p>As seen earlier in this article, the variables in a class are stored in the <i>`__dict__`</i>
-                attribute of
-                the class. To prevent meddling of the <i>`__dict__`</i> variable, <b>pyattr</b> uses a custom
-                dictionary
-                implementation that has the <i>set</i> and <i>get</i> method overrides baked in.</p>
+                <p>As seen earlier in this article, the variables in a class are stored in the <i>`__dict__`</i>
+                    attribute of
+                    the class. To prevent meddling of the <i>`__dict__`</i> variable, <b>pyattr</b> uses a custom
+                    dictionary
+                    implementation that has the <i>set</i> and <i>get</i> method overrides baked in.</p>
 
-            <p><b>pyattr</b> also works with functions. This is due to the fact that the functions in a class are
-                also
-                stored in its <i>`__dict__`</i> variable.</p>
+                <p><b>pyattr</b> also works with functions. This is due to the fact that the functions in a class are
+                    also
+                    stored in its <i>`__dict__`</i> variable.</p>
 
-            <script>
-                hljs.highlightAll();
-            </script>
+                <script>
+                    hljs.highlightAll();
+                </script>
+            </div>
         </div>
     </div>
 </body>

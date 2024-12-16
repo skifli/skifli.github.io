@@ -4,21 +4,17 @@
 		<title>Skifli's Blog</title>
 		<link>https://skifli.github.io/blog</link>
 		<description>My Blog</description>
-			<item>
-			<title>the art of compilers</title>
+		<item>
+			<title>The art of compilers</title>
 			<description>My article submission for our school's annual Computer Science journal.</description>
 			<link>https://skifli.github.io/blog/2024/the-art-of-compilers.html</link>
 			<pubDate>Mon, 01 Jan 2024</pubDate>
-			<category>compilers</category>
-			<category>2024</category>
 		</item>
 		<item>
-			<title>pyattr in-depth explanation</title>
+			<title>Pyattr in-depth explanation</title>
 			<description>An in-depth explanation and look at the inner workings of pyattr.</description>
 			<link>https://skifli.github.io/blog/2023/pyattr-in-depth-explanation.html</link>
 			<pubDate>Wed, 30 Aug 2023</pubDate>
-			<category>python</category>
-			<category>2023</category>
 		</item>
 	</channel>
 </rss>

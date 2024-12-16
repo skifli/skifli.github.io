@@ -1,5 +1,4 @@
 {
-    // Update `../.devcontainer/devcontainer.json` as well.
     "recommendations": [
         "aaron-bond.better-comments",
         "albert.tabout",

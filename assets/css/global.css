@@ -1,12 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css");
+
+/* global */
 
 :root {
-    --background-colour: #000000;
-    --text-colour: #FFFFFF;
-    --muted-text-colour: #AAAAAA;
-    --link-colour: #9195FF;
-
-    --column-width: 700px;
+    --bg-colour: #0E0E0E;
+    --text-colour: #171C20;
+    --text-color-muted: #666666;
+    --accent-colour: #0067C0;
 }
 
 * {
@@ -17,106 +18,269 @@
     padding: 0px;
 }
 
-body {
-    display: inline-block;
-    width: 100vw;
-    height: 100vh;
-
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-variation-settings:
-        "slnt" 0;
-
-    background-color: var(--background-colour);
-    color: var(--text-colour);
-
-    text-align: justify;
+html {
+    overflow: hidden;
 }
 
-h1 {
-    font-size: 3rem;
-    font-weight: 600;
-    line-height: 1.2;
-    margin-bottom: 5px;
+body {
+    background-image: url("../img/cover.JPG");
+    background-size: cover;
+    background-position: center;
+
+    display: inline-block;
+
+    font-family: "Noto Sans", sans-serif;
+
+    color: var(--text-colour);
+    background-color: var(--bg-colour);
+
+    width: 100vw;
+    height: 100vh;
 }
 
 h2 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    line-height: 1.2;
-    margin-bottom: 15px;
-}
-
-h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.2;
+    font-size: 1.5rem;
+    font-weight: 500;
     margin-bottom: 10px;
 }
 
 p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 400;
-    line-height: 1.3;
+    margin-bottom: 10px;
+    text-align: justify;
 }
 
-i.bx {
-    font-size: 1.2rem;
+p:last-child {
+    margin-bottom: 0px;
+}
+
+b {
+    font-weight: 600;
 }
 
 a {
-    color: var(--text-colour);
+    color: var(--accent-colour);
     text-decoration: none;
 }
 
-a:not(.custom) {
-    color: var(--link-colour);
-
+a:hover {
     text-decoration: underline;
-    text-decoration-color: transparent;
-    transition: text-decoration-color 0.25s;
 }
 
-a:not(.custom):hover {
-    text-decoration-color: var(--link-colour);
+/* island */
+
+.island {
+    backdrop-filter: blur(25px) saturate(180%);
+    background-color: #F3F3F3;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: absolute;
 }
 
-span.gradient-text {
-    background: linear-gradient(160deg, #CA4246, #9195ff);
-    background-clip: text;
-    color: transparent;
-
-    font-weight: 700;
+.island .toolbar {
+    align-items: center;
+    background-color: #E5E5E5;
+    border-bottom: 1px solid #DDDDDD;
+    border-radius: 8px 8px 0px 0px;
+    cursor: move;
+    display: flex;
+    height: 23px;
 }
 
-#content {
-    padding: 0px 25px;
-    padding-bottom: 10px;
-    max-width: var(--column-width);
-
-    margin: 0 auto;
+.island .toolbar .title {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    padding-left: 10px;
+    pointer-events: none;
+    z-index: 999;
 }
 
-#content .section {
-    margin-bottom: 20px;
+.island .toolbar .title span {
+    margin-right: 2.5px;
 }
 
-#content .section p {
-    margin-bottom: 10px;
+.island .toolbar .title span,
+.island .toolbar .title p {
+    font-size: 0.75rem;
+    font-weight: 300;
 }
 
-pre code {
-    margin: 10px 0px;
+.island .toolbar .action-buttons {
+    cursor: initial;
 }
 
-/* website carbon */
-
-#wcb.carbonbadge {
-    margin-bottom: 10px;
+.island .toolbar .action-buttons .icon {
+    padding: 0px 18px;
 }
 
-#wbc_2 {
-    color: var(--muted-text-colour);
+.island .toolbar .action-buttons .icon.close {
+    border-top-right-radius: 8px;
+}
+
+.island .toolbar .action-buttons .icon.close:hover {
+    background-color: #FC3131;
+}
+
+.island .toolbar .action-buttons .icon img {
+    pointer-events: none;
+    width: 14px;
+}
+
+.island .body {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 23px);
+}
+
+.island .contents {
+    flex: 1;
+    padding: 1rem;
+    overflow: auto;
+}
+
+.island .footer {
+    align-items: flex-end;
+    background-color: #D9D9D9;
+    border-top: 1px solid #DDDDDD;
+    border-radius: 0px 0px 8px 8px;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+}
+
+.island .footer button {
+    background-color: #0067C0;
+    border: none;
+    border-radius: 4px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.island .footer button:hover {
+    background-color: #0062B6;
+}
+
+.island .footer button p {
+    text-align: center;
+}
+
+.island .resizers {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+}
+
+.island .resizers.unresizable {
+    display: none;
+}
+
+.island .resizers .resizer {
+    position: absolute;
+    pointer-events: auto;
+    width: 10px;
+    height: 10px;
+}
+
+.island .resizer.top-left {
+    left: 0px;
+    top: 0px;
+    cursor: nwse-resize;
+    /*resizer cursor*/
+}
+
+.island .resizer.top-right {
+    right: 0px;
+    top: 0px;
+    cursor: nesw-resize;
+}
+
+.island .resizer.bottom-left {
+    left: 0px;
+    bottom: 0px;
+    cursor: nesw-resize;
+}
+
+.island .resizer.bottom-right {
+    right: 0px;
+    bottom: 0px;
+    cursor: nwse-resize;
+}
+
+/* middle */
+
+.middle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* nav */
+
+.nav-item {
+    font-size: 0.85rem;
+}
+
+.nav-item a {
+    color: var(--text-colour);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out, margin-left 0.2s ease-in-out;
+}
+
+.nav-item a:hover,
+.nav-item a#current {
+    margin-left: 5px;
+}
+
+.nav-item a:hover {
+    color: var(--accent-colour);
+}
+
+nav hr {
+    border: 1px solid var(--text-colour);
+    margin: 5px 0px;
+}
+
+/* blog */
+
+ul#blogs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul#blogs li p {
+    color: var(--text-color-muted);
+    margin-bottom: 0px;
+    float: right;
+    font-weight: 500;
+}
+
+ul#blogs.mobile li p {
+    float: initial;
+}
+
+ul#toc {
+    list-style: none;
+}
+
+ul#toc a {
+    font-size: 0.85rem;
+    font-weight: 300;
+}
+
+pre code,
+details,
+ul#toc {
+    margin-bottom: 10px
+}
+
+ul ul {
+    margin-left: 20px
 }
