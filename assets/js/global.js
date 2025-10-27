@@ -65,7 +65,7 @@ const TUTORIAL_ISLAND_HTML = `<div class='resizers'>
             Now that I've told you the premise of this site, just click below to begin your journey.</p>
 
         <p>Oh and before you ask, I did make this myself. No fancy frameworks, just plain ol' HTML, CSS, and JS.
-            Enjoy your stay - for the best experience don't use a phone.</p>
+            Enjoy your stay - for the best experience don't use a device with a small screen.</p>
 
         <p><b>PS:</b> This website uses <a href="https://umami.is/" target="_blank">Umami Analytics</a> to track visits. There is no way to disable it because it is completely anonymised.</p>
 
